@@ -1,7 +1,8 @@
 // import "dotenv/config";
 import dotenv from "dotenv";
-import express, { Application, Request, Response } from "express";
+import express, { Application } from "express";
 import { logger } from "./middleware/logger";
+import { homeRouter } from "./routes/home";
 
 dotenv.config();
 
@@ -11,9 +12,7 @@ const app: Application = express();
 app.use(logger);
 
 // Main Route
-app.get("/", (_: Request, res: Response) => {
-  res.send("Hello");
-});
+app.use(homeRouter);
 
 const { PORT, HOST } = process.env;
 app.listen(PORT, () =>
