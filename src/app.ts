@@ -1,13 +1,10 @@
 import path from "path";
 
-// import "dotenv/config";
-import dotenv from "dotenv";
+import "dotenv/config";
 import express, { Application } from "express";
 import morgan from "morgan";
 
 import { homeRouter } from "./routes/home";
-
-dotenv.config();
 
 const app: Application = express();
 
