@@ -1,10 +1,14 @@
 // import "dotenv/config";
 import dotenv from "dotenv";
 import express, { Application, Request, Response } from "express";
+import { logger } from "./middleware/logger";
 
 dotenv.config();
 
 const app: Application = express();
+
+// Logger
+app.use(logger);
 
 // Main Route
 app.get("/", (_: Request, res: Response) => {
