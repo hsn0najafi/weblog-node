@@ -4,6 +4,11 @@ import "dotenv/config";
 import express, { Application } from "express";
 import morgan from "morgan";
 
+import { dataBaseConnection } from "./utils/db";
+
+// DataBase Connection
+dataBaseConnection();
+
 const app: Application = express();
 
 // Logger
