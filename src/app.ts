@@ -28,6 +28,6 @@ app.use(homeRouter);
 const { PORT, HOST, NODE_ENV } = process.env;
 app.listen(PORT, () =>
   console.log(
-    `Server is Running on : http://${HOST}:${PORT} and ${NODE_ENV} Mode`
+    `Server is Running on -> http://${HOST}:${PORT} and ${NODE_ENV} Mode`
   )
 );
