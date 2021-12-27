@@ -25,7 +25,9 @@ app.set("views", path.join(__dirname, "views"));
 // Main Route
 app.use(homeRouter);
 
-const { PORT, HOST } = process.env;
+const { PORT, HOST, NODE_ENV } = process.env;
+console.log(NODE_ENV);
+
 app.listen(PORT, () =>
   console.log(`Server is Running on : http://${HOST}:${PORT}`)
 );
