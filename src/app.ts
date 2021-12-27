@@ -3,6 +3,7 @@ import path from "path";
 import "dotenv/config";
 import express, { Application } from "express";
 import morgan from "morgan";
+import expressEjsLayouts from "express-ejs-layouts";
 
 import { dataBaseConnection } from "./utils/db";
 
@@ -20,6 +21,10 @@ app.use(express.static(path.join(__dirname, "public")));
 // View Engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
+// Layouts for EJS
+app.use(expressEjsLayouts);
+app.set("layout", "layouts");
 
 // Main Route
 app.use(require("./routes/home").homeRouter);
