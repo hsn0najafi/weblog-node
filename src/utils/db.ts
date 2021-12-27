@@ -6,5 +6,8 @@ export const dataBaseConnection = async () => {
     console.log(conn.connection.host);
   } catch (err) {
     console.log(err);
+
+    // Close from App When Can't Connect to DataBase
+    process.exit(1);
   }
 };
