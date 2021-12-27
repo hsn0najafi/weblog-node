@@ -1,6 +1,7 @@
 // import "dotenv/config";
 import dotenv from "dotenv";
 import express, { Application } from "express";
+
 import { logger } from "./middleware/logger";
 import { homeRouter } from "./routes/home";
 
