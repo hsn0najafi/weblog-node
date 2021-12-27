@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 import express, { Application } from "express";
 import morgan from "morgan";
 
-import { logger } from "./middleware/logger";
 import { homeRouter } from "./routes/home";
 
 dotenv.config();
@@ -13,7 +12,6 @@ dotenv.config();
 const app: Application = express();
 
 // Logger
-app.use(logger);
 process.env.NODE_ENV === "Development" && app.use(morgan("dev"));
 
 // Set '/public' For Static Files
