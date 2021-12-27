@@ -4,8 +4,6 @@ import "dotenv/config";
 import express, { Application } from "express";
 import morgan from "morgan";
 
-import { homeRouter } from "./routes/home";
-
 const app: Application = express();
 
 // Logger
@@ -19,7 +17,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // Main Route
-app.use(homeRouter);
+app.use(require("./routes/home").homeRouter);
 
 const { PORT, HOST, NODE_ENV } = process.env;
 app.listen(PORT, () =>
