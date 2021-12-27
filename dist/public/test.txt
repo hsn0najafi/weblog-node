@@ -1,0 +1,1 @@
+Hi This is Test for Static Folder
