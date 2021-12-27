@@ -24,7 +24,7 @@ app.set("views", path.join(__dirname, "views"));
 
 // Layouts for EJS
 app.use(expressEjsLayouts);
-app.set("layout", "layouts");
+app.set("layout", "layout");
 
 // Main Route
 app.use(require("./routes/home").homeRouter);
