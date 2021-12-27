@@ -4,6 +4,7 @@ import path from "path";
 import dotenv from "dotenv";
 import express, { Application } from "express";
 import ejs from "ejs";
+import morgan from "morgan";
 
 import { logger } from "./middleware/logger";
 import { homeRouter } from "./routes/home";
@@ -14,6 +15,7 @@ const app: Application = express();
 
 // Logger
 app.use(logger);
+process.env.NODE_ENV === "Development" && app.use(morgan("dev"));
 
 // Set '/public' For Static Files
 app.use(express.static(path.join(__dirname, "public")));
