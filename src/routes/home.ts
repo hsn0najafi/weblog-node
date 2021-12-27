@@ -1,7 +1,7 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+
+import { homeController } from "../controllers/home";
 
 const router = Router();
 
-export const homeRouter = router.get("/", (_: Request, res: Response) => {
-  res.send("Hello");
-});
+export const homeRouter = router.get("/", homeController);
