@@ -1,0 +1,6 @@
+# Dependencies
+node_modules
+
+# All Compiled JavaScript Files
+dist/**/*.js
+
