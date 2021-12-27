@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 
-export const logger = (
-  request: Request,
-  response: Response,
-  next: NextFunction
-) => {
+interface Logger {
+  (request: Request, response: Response, next: NextFunction): void;
+}
+
+export const logger: Logger = (request, response, next) => {
   let current_datetime = new Date();
   let FORMATTED_DATA =
     current_datetime.getFullYear() +
@@ -18,9 +18,9 @@ export const logger = (
     current_datetime.getMinutes() +
     ":" +
     current_datetime.getSeconds();
-  let METHOD = request.method;
-  let STATUS = response.statusCode;
-  let URL = request.url;
+  let METHOD: string = request.method;
+  let STATUS: number = response.statusCode;
+  let URL: string = request.url;
   console.log(`[${FORMATTED_DATA}] [ ${METHOD} - ${STATUS} - ${URL} ]`);
   next();
 };
