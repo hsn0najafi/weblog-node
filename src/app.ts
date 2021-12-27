@@ -3,7 +3,6 @@ import path from "path";
 // import "dotenv/config";
 import dotenv from "dotenv";
 import express, { Application } from "express";
-import ejs from "ejs";
 import morgan from "morgan";
 
 import { logger } from "./middleware/logger";
