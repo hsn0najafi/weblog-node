@@ -1,6 +1,9 @@
+import path from "path";
+
 // import "dotenv/config";
 import dotenv from "dotenv";
 import express, { Application } from "express";
+import ejs from "ejs";
 
 import { logger } from "./middleware/logger";
 import { homeRouter } from "./routes/home";
@@ -11,6 +14,10 @@ const app: Application = express();
 
 // Logger
 app.use(logger);
+
+// View Engine
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 // Main Route
 app.use(homeRouter);
