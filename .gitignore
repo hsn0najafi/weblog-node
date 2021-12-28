@@ -4,3 +4,6 @@ node_modules
 # All Compiled JavaScript Files
 dist/**/*.js
 
+# All Compiled Css Files
+dist/public/css
+
