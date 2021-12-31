@@ -10,6 +10,11 @@
   scroll-behavior: smooth;
 }
 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-size: 16px;
 }
