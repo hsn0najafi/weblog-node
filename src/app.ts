@@ -28,6 +28,7 @@ app.set("layout", "layout");
 
 // Main Route
 app.use(require("./routes/home").homeRouter);
+app.use(require("./routes/login").loginRouter);
 
 const { PORT, HOST, NODE_ENV } = process.env;
 app.listen(PORT, () =>
