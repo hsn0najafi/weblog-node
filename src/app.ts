@@ -27,9 +27,9 @@ app.use(expressEjsLayouts);
 app.set("layout", "layout");
 
 // Main Route
-app.use(require("./routes/home").homeRouter);
+app.use(require("./routes/home"));
 app.use(require("./routes/loginSignup"));
-app.use("/admin", require("./routes/dashboard").dashboardRouter);
+app.use("/admin", require("./routes/dashboard"));
 
 const { PORT, HOST, NODE_ENV } = process.env;
 app.listen(PORT, () =>

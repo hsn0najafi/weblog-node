@@ -2,7 +2,9 @@ import { Router } from "express";
 
 const router = Router();
 
-export const homeRouter = router.get(
-  "/",
-  require("../controllers/home").homeController
-);
+/**
+ * Route: '/'
+ */
+router.get("/", require("../controllers/home").homeController);
+
+module.exports = router;
