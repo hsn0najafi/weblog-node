@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=Production node dist/app.js",
     "dev": "cross-env NODE_ENV=Development nodemon dist/app.js",
     "tsc": "tsc -w",
-    "sass": "sass --no-source-map -w dist/public/scss:dist/public/css"
+    "sass": "sass --no-source-map -w src/public/scss:dist/public/css"
   },
   "repository": {
     "type": "git",
