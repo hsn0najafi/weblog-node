@@ -28,7 +28,7 @@ app.set("layout", "layout");
 
 // Main Route
 app.use(require("./routes/home").homeRouter);
-app.use(require("./routes/login").loginRouter);
+app.use(require("./routes/loginSignup"));
 app.use("/admin", require("./routes/dashboard").dashboardRouter);
 
 const { PORT, HOST, NODE_ENV } = process.env;
