@@ -26,7 +26,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(expressEjsLayouts);
 app.set("layout", "layout");
 
-// Main Route
+// Routes
 app.use(require("./routes/home"));
 app.use(require("./routes/loginSignup"));
 app.use("/admin", require("./routes/dashboard"));
