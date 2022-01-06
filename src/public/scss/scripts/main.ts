@@ -8,6 +8,8 @@ const classNameToggler = (
   targetElements: NodeListOf<Element>,
   classNames: string[]
 ) => {
-  console.log(targetElements);
-  console.log(classNames);
+  if (targetElements.length === classNames.length) {
+    console.log(targetElements);
+    console.log(classNames);
+  }
 };
