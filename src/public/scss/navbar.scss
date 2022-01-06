@@ -58,6 +58,10 @@
     right: -150vw;
     opacity: 0;
   }
+  &-show {
+    right: auto;
+    opacity: 1;
+  }
 
   &__hidden {
     display: none;
