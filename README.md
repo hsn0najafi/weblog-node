@@ -26,7 +26,7 @@ npm run sass
 npm start
 ```
 
-or
+#### or
 
 ```
 npm run dev
