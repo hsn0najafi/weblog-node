@@ -14,3 +14,22 @@
     height: 40px;
   }
 }
+
+// Hamburger Menu
+.hamburgerButton {
+  --menu-side: 25px;
+  margin-right: 7.5px;
+  width: var(--menu-side);
+  height: var(--menu-side);
+  border: none;
+  cursor: pointer;
+  border-radius: calc(var(--menu-side) / 10);
+  @include flexCenter(column, space-between, center);
+  div {
+    height: calc(var(--menu-side) / 5);
+    width: var(--menu-side);
+    background-color: $black;
+    border-radius: calc(var(--menu-side) / 10);
+    transition: ease 0.25s all;
+  }
+}
