@@ -32,4 +32,15 @@
     border-radius: calc(var(--menu-side) / 10);
     transition: ease 0.25s all;
   }
+  // Hamburger menu Lines
+  &-top {
+    transform: translateY(calc((var(--menu-side) / 5) * 2)) rotate(45deg);
+  }
+  &-mid {
+    transform: translate(calc(var(--menu-side) * -1));
+    opacity: 0;
+  }
+  &-bot {
+    transform: translateY(calc((var(--menu-side) / 5) * -2)) rotate(-45deg);
+  }
 }
