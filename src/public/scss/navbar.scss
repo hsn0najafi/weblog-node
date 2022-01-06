@@ -1,0 +1,16 @@
+@import "includes/variables";
+@import "includes/mixins";
+
+// Navbar
+.navbar {
+  position: sticky;
+  top: 1%;
+  ul {
+    @include flexCenter(row, space-between, center);
+    box-shadow: $shadow-1;
+    border-radius: $radius-2;
+    width: 98%;
+    margin: 0 1%;
+    height: 40px;
+  }
+}
