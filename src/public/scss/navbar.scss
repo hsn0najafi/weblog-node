@@ -9,8 +9,8 @@
     @include flexCenter(row, space-between, center);
     box-shadow: $shadow-1;
     border-radius: $radius-2;
-    width: 98%;
-    margin: 0 1%;
+    width: calc(100% - 20px);
+    margin: 0 auto;
     height: 40px;
   }
 }
