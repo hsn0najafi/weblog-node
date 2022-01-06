@@ -1,26 +1,26 @@
 # weblog
 
-## Weblog - Express.js
+### Weblog - Express.js
 
-### Dependencies
+## Dependencies
+
+```
+MONGODB_URI=<Your MongoDB URI> on '/.env'
+```
 
 ```
 npm i
 ```
 
-Compile TypeScript
-
 ```
 npm run tsc
 ```
-
-Compile Sass
 
 ```
 npm run sass
 ```
 
-### Run
+## Run
 
 ```
 npm start
