@@ -8,8 +8,22 @@ const classNameToggler = (
   targetElements: NodeListOf<Element>,
   classNames: string[]
 ) => {
+  console.log(targetElements);
+  console.log(classNames);
   if (targetElements.length === classNames.length) {
-    console.log(targetElements);
-    console.log(classNames);
+    for (let i = 0; i < classNames.length; i++) {
+      targetElements[i].classList.toggle(classNames[i]);
+    }
   }
 };
+
+/**
+ * Rotate hamburgerMenu Button Lines
+ */
+hamburgerButton?.addEventListener("click", () => {
+  classNameToggler(hamburgerButton_lines, [
+    "hamburgerButton-top",
+    "hamburgerButton-mid",
+    "hamburgerButton-bot",
+  ]);
+});
