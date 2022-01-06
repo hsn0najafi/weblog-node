@@ -1,5 +1,6 @@
 const hamburgerButton = document.querySelector(".hamburgerButton");
 const hamburgerButton_lines = document.querySelectorAll(".hamburgerButton div");
+const sliderMenu__main = document.querySelectorAll(".sliderMenu__main");
 
 /**
  * Add and Remove a ClassName to DOMElement
@@ -24,4 +25,12 @@ hamburgerButton?.addEventListener("click", () => {
     "hamburgerButton-mid",
     "hamburgerButton-bot",
   ]);
+  showMenu();
 });
+
+/**
+ * Show or Hide hamburger Menu
+ */
+const showMenu = () => {
+  classNameToggler(sliderMenu__main, ["sliderMenu-show"]);
+};
