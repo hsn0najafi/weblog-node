@@ -8,8 +8,6 @@ const classNameToggler = (
   targetElements: NodeListOf<Element>,
   classNames: string[]
 ) => {
-  console.log(targetElements);
-  console.log(classNames);
   if (targetElements.length === classNames.length) {
     for (let i = 0; i < classNames.length; i++) {
       targetElements[i].classList.toggle(classNames[i]);
