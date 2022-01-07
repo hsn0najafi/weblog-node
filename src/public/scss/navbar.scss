@@ -67,3 +67,13 @@
     display: none;
   }
 }
+
+.search {
+  width: 300px;
+  height: 30px;
+  outline: none;
+  border: none;
+  box-shadow: $shadow-2;
+  border-radius: $radius-2;
+  padding: 2px;
+}
