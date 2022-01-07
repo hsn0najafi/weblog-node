@@ -95,4 +95,15 @@
     height: auto;
     border-radius: 50%;
   }
+
+  &-popup__hidden {
+    position: absolute;
+    top: 40px;
+    left: -9px;
+    width: 200px;
+    height: 300px;
+    border-radius: $radius-2;
+    background-color: white;
+    box-shadow: $shadow-2;
+  }
 }
