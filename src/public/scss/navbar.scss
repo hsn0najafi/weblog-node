@@ -90,12 +90,14 @@
   margin-left: 7.5px;
   position: relative;
 
+  // User Image
   img {
     width: 100%;
     height: auto;
     border-radius: 50%;
   }
 
+  // Hidden PopUp
   &-popup__hidden {
     position: absolute;
     top: 40px;
@@ -106,6 +108,7 @@
     background-color: white;
     box-shadow: $shadow-2;
 
+    // LeftTop Corner
     div {
       position: absolute;
       border-radius: 5px;
@@ -115,6 +118,10 @@
       border-top-right-radius: 10px;
       top: -5px;
       left: 0;
+    }
+
+    // PopUp Content
+    main {
     }
   }
 }
