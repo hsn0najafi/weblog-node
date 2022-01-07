@@ -5,5 +5,8 @@ node_modules
 dist/**/*.js
 
 # All Compiled Css Files
-dist/public/css
+dist/public/css/*.css
+
+# Ignore Frameworks
+!dist/public/css/*.min.css
 
