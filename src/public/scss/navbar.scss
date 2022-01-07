@@ -105,5 +105,16 @@
     border-radius: $radius-2;
     background-color: white;
     box-shadow: $shadow-2;
+
+    div {
+      position: absolute;
+      border-radius: 5px;
+      width: 60px;
+      height: 30px;
+      background-color: #fff;
+      border-top-right-radius: 10px;
+      top: -5px;
+      left: 0;
+    }
   }
 }
