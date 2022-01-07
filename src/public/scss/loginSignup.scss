@@ -8,3 +8,43 @@
   }
   margin: 40px auto;
 }
+
+.main {
+  form {
+    width: 80%;
+    margin: 30px auto;
+    height: 300px;
+    box-shadow: $shadow-1;
+    border-radius: $radius-1;
+    @include flexCenter(column, center, center);
+
+    input {
+      margin: 5px;
+      padding: 5px;
+      width: 80%;
+      border: none;
+      box-shadow: $shadow-1;
+      outline: none;
+      direction: ltr;
+      border-radius: $radius-2;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    input:focus {
+      width: 90%;
+      border-right: 2px solid $red;
+      border-left: 4px solid $red;
+    }
+
+    input:nth-child(3) {
+      margin-top: 50px;
+      width: auto;
+    }
+
+    input[type="submit"]:hover {
+      background-color: $blue;
+      color: white;
+    }
+  }
+}
