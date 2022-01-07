@@ -1,5 +1,6 @@
 const hamburgerButton = document.querySelector(".hamburgerButton");
 const hamburgerButton_lines = document.querySelectorAll(".hamburgerButton div");
+
 const sliderMenu__main = document.querySelectorAll(".sliderMenu__main");
 
 /**
