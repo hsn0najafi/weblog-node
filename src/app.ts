@@ -28,7 +28,7 @@ app.set("layout", "layout");
 
 // Routes
 app.use(require("./routes/home"));
-app.use(require("./routes/loginSignup"));
+app.use("/users", require("./routes/loginSignup"));
 app.use("/admin", require("./routes/dashboard"));
 app.use(require("./routes/pageNotFound"));
 
