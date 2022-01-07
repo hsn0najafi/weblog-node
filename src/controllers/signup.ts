@@ -12,3 +12,11 @@ export const signupController = (_: Request, res: Response) => {
     layout: "loginSignup",
   });
 };
+
+/**
+ * Register New User
+ */
+export const handleSignup = (_: Request, res: Response) => {
+  console.log(_.body);
+  res.send(_.body);
+};

@@ -12,4 +12,9 @@ router.get("/login", require("../controllers/login").loginController);
  */
 router.get("/signup", require("../controllers/signup").signupController);
 
+/**
+ * Route: POST '/users/signup'
+ */
+router.post("/signup", require("../controllers/signup").handleSignup);
+
 module.exports = router;
