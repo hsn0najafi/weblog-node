@@ -30,6 +30,7 @@ app.set("layout", "layout");
 app.use(require("./routes/home"));
 app.use(require("./routes/loginSignup"));
 app.use("/admin", require("./routes/dashboard"));
+app.use(require("./routes/pageNotFound"));
 
 const { PORT, HOST, NODE_ENV } = process.env;
 app.listen(PORT, () =>
