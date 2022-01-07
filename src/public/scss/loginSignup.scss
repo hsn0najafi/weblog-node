@@ -1,0 +1,10 @@
+@import "includes/variables";
+@import "includes/mixins";
+
+.header {
+  text-align: center;
+  h2 {
+    font-weight: bold;
+  }
+  margin: 40px auto;
+}
