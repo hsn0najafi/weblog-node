@@ -3,6 +3,11 @@ const hamburgerButton_lines = document.querySelectorAll(".hamburgerButton div");
 
 const sliderMenu__main = document.querySelectorAll(".sliderMenu__main");
 
+const userProfile = document.querySelector(".userPicture");
+const userProfilePopup__hidden = document.querySelectorAll(
+  ".userProfile-popup__hidden"
+);
+
 /**
  * Add and Remove a ClassName to DOMElement
  */
@@ -35,3 +40,12 @@ hamburgerButton?.addEventListener("click", () => {
 const showMenu = () => {
   classNameToggler(sliderMenu__main, ["sliderMenu-show"]);
 };
+
+/**
+ * Show and Hide UserProfile PopUp
+ */
+userProfile?.addEventListener("click", () => {
+  classNameToggler(userProfilePopup__hidden, [
+    "userProfile-popup__hidden__show",
+  ]);
+});
