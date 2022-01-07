@@ -112,10 +112,11 @@
     div {
       position: absolute;
       border-radius: 5px;
-      width: 60px;
-      height: 30px;
+      width: 55px;
+      height: 10px;
       background-color: #fff;
       border-top-right-radius: 10px;
+      border-bottom-left-radius: 0;
       top: -5px;
       left: 0;
     }
