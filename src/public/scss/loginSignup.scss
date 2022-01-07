@@ -48,3 +48,21 @@
     }
   }
 }
+
+.footer {
+  @include flexCenter(row, center, center);
+  margin: 10px auto;
+  box-shadow: $shadow-1;
+  border-radius: $radius-1;
+  width: 300px;
+  height: 40px;
+  display: flex;
+  * {
+    margin: 0 5px;
+  }
+
+  a {
+    color: $pink;
+    font-weight: bold;
+  }
+}
