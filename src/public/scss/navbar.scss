@@ -122,7 +122,19 @@
     }
 
     // PopUp Content
-    main {
+    ul {
+      width: 100%;
+      height: 100%;
+      @include flexCenter(column, space-around, center);
+
+      li {
+        width: 90%;
+        text-align: center;
+        height: auto;
+        box-shadow: $shadow-1;
+        background-color: #efefef;
+        border-radius: $radius-2;
+      }
     }
   }
 }
