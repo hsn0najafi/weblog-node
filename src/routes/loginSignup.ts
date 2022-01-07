@@ -3,12 +3,12 @@ import { Router } from "express";
 const router = Router();
 
 /**
- * Route: '/users/login'
+ * Route: GET '/users/login'
  */
 router.get("/login", require("../controllers/login").loginController);
 
 /**
- * Route: '/users//signup'
+ * Route: GET '/users//signup'
  */
 router.get("/signup", require("../controllers/signup").signupController);
 

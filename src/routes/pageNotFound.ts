@@ -3,7 +3,7 @@ import { Router } from "express";
 const router = Router();
 
 /**
- * Route: '/*'
+ * Route: GET '/*'
  */
 router.use(require("../controllers/pageNotFound").pageNotFound);
 

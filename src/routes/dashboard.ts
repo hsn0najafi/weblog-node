@@ -3,7 +3,7 @@ import { Router } from "express";
 const router = Router();
 
 /**
- * Route: '/admin/dashboard'
+ * Route: GET '/admin/dashboard'
  */
 router.get(
   "/dashboard",

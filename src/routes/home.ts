@@ -3,7 +3,7 @@ import { Router } from "express";
 const router = Router();
 
 /**
- * Route: '/'
+ * Route: GET '/'
  */
 router.get("/", require("../controllers/home").homeController);
 
