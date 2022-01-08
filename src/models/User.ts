@@ -55,4 +55,8 @@ const schema = object().shape({
   //
 });
 
+UserSchema.statics.userValidation = function (body) {
+  return schema.validate(body, { abortEarly: false });
+};
+
 export const User = mongoose.model("User", UserSchema);
