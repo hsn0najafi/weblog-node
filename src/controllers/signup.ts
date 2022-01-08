@@ -4,11 +4,11 @@ import FastestValidator from "fastest-validator";
 // Validator Schema And Error Messages
 const validator = new FastestValidator();
 const schema = {
-  fullname: {
+  fullName: {
     type: "string",
     trim: true,
     min: 4,
-     max: 255,
+    max: 255,
     messages: {
       required: "نام و نام خانوادگی الزامی است.",
       stringMin: "نام و نام خانوادگی نباید کمتر از ۴ باشد.",
@@ -21,6 +21,7 @@ const schema = {
     messages: {
       required: "آدرس ایمیل الزامی هست.",
       string: "آدرس ایمیل صحیح نیست.",
+      emailEmpty: "ایمیلتو بنویس.",
     },
   },
   password: {
@@ -68,4 +69,25 @@ export const handleSignup = (_: Request, res: Response) => {
   console.log(_.body);
 
   // Validate Data
+  const validate = validator.validate(_.body, schema);
+  const errors = [];
+  if (validate === true) {
+    const { fullname, email, password, repeatPassword } = _.body;
+    if (password !== repeatPassword) {
+      errors.push({ message: "رمز عبور و تکرار آن یکسان نیست." });
+
+      return res.render("pages/signup", {
+        pageTitle: "Signup",
+        layout: "loginSignup",
+        errors,
+      });
+    }
+    res.redirect("/users/login");
+  } else {
+    res.render("pages/signup", {
+      pageTitle: "Signup",
+      layout: "loginSignup",
+      errors: validate,
+    });
+  }
 };
