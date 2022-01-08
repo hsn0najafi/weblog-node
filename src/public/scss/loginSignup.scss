@@ -66,3 +66,17 @@
     font-weight: bold;
   }
 }
+
+.errorMessage {
+  @include flexCenter(row, center, center);
+  margin: 10px auto;
+  box-shadow: $shadow-2;
+  border-radius: $radius-2;
+  width: 80%;
+  height: 30px;
+  background-color: $orange;
+  color: $white;
+  div {
+    margin: 0 10px;
+  }
+}

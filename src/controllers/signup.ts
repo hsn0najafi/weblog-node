@@ -37,7 +37,7 @@ export const signupController = (_: Request, res: Response) => {
     pageTitle: "Signup",
     message: "Register",
     layout: "loginSignup",
-    errors: [],
+    errors: ["hghsggfyewgayw"],
   });
 };
 

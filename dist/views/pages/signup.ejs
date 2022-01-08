@@ -13,10 +13,17 @@
     <input type="password" name="repeatPassword" placeholder="تکرار رمز عبور" />
     <input type="submit" value=" ایجاد حساب " />
   </form>
-  <%- include ("../includes/errorMessage.ejs") -%>
 </main>
 
+<% if (errors[0] === 'hghsggfyewgayw') { %>
+<!-- ---------------- -->
 <footer class="footer">
   <p>اگر حساب دارید بروید به صفحه</p>
   <a href="/users/login">ورود</a>
 </footer>
+<!-- ----- -->
+<% } else { %>
+<!-- ----- -->
+<%- include ("../includes/errorMessage.ejs") -%>
+<!-- --------------------------------------- -->
+<% } %>
