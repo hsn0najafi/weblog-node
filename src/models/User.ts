@@ -4,7 +4,7 @@ import { object, ref, string } from "yup";
 /**
  * MongoDB Schema
  */
-const UserSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   fullName: {
     type: String,
     required: true,
@@ -55,8 +55,8 @@ const schema = object().shape({
   //
 });
 
-UserSchema.statics.userValidation = function (body) {
+userSchema.statics.userValidation = function (body) {
   return schema.validate(body, { abortEarly: false });
 };
 
-export const User = mongoose.model("User", UserSchema);
+export const User = mongoose.model("User", userSchema);
