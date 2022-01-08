@@ -8,7 +8,7 @@ import { Request, Response } from "express";
 export const pageNotFound = (_: Request, res: Response) => {
   res.render("pages/pageNotFound", {
     pageTitle: "pageNotFound",
-    message: "404 - Page Not Found",
+    message: "Page Not Found",
     layout: "layout",
   });
 };
