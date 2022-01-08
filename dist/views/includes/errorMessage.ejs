@@ -1,1 +1,9 @@
-<%= errors %>
+<% errors.forEach(error => { %>
+<!-- ------------------- -->
+<section class="errorMessage">
+  <!-- ------------------- -->
+  <p><%= error %></p>
+  <!-- ---------- -->
+</section>
+<!-- -->
+<% }) %>
