@@ -37,6 +37,7 @@ export const signupController = (_: Request, res: Response) => {
     pageTitle: "Signup",
     message: "Register",
     layout: "loginSignup",
+    errors: [],
   });
 };
 
@@ -45,5 +46,20 @@ export const signupController = (_: Request, res: Response) => {
  */
 export const handleSignup = (_: Request, res: Response) => {
   console.log(_.body);
-  res.send(_.body);
+
+  // Validate Data
+  schema
+    .validate(_.body)
+    .then((result) => {
+      console.log(result);
+      res.redirect("/users/login");
+    })
+    .catch((err) => {
+      console.log(err.errors);
+      res.render("pages/signup", {
+        pageTitle: "Signup",
+        layout: "loginSignup",
+        errors: err.errors,
+      });
+    });
 };
