@@ -71,11 +71,16 @@ export const handleSignup = (_: Request, res: Response) => {
   // Validate Data
   const validate = validator.validate(_.body, schema);
   const errors = [];
+
+  // When Form Valid
   if (validate === true) {
     const { fullname, email, password, repeatPassword } = _.body;
+
+    // Check 'repeatPassword'
     if (password !== repeatPassword) {
       errors.push({ message: "رمز عبور و تکرار آن یکسان نیست." });
 
+      // Render Repeat Password Error
       return res.render("pages/signup", {
         pageTitle: "Signup",
         layout: "loginSignup",
@@ -83,7 +88,10 @@ export const handleSignup = (_: Request, res: Response) => {
       });
     }
     res.redirect("/users/login");
-  } else {
+  }
+
+  // When Form Invalid
+  else {
     res.render("pages/signup", {
       pageTitle: "Signup",
       layout: "loginSignup",
