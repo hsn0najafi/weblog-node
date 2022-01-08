@@ -37,7 +37,7 @@
       border-left: 4px solid $red;
     }
 
-    input:nth-child(5) {
+    input[type="submit"] {
       margin-top: 30px;
       width: auto;
     }
