@@ -11,8 +11,8 @@ router.use((_: Request, res: Response) => {
   /**
    * @description    All NotDefined Routes
    * @pages          pages/pageNotFound
-   * @param          ['pageTitle', 'message']
-   * @layout         layout
+   * @param          [pageTitle, message]
+   * @layout         layout - Default(This Optional)
    */
   res.render("pages/pageNotFound", {
     pageTitle: "pageNotFound",
