@@ -30,7 +30,7 @@ const userSchema = new Schema<UserSchema, UserModel>({
   password: {
     type: String,
     required: true,
-    minlength: 8,
+    minlength: 4,
     maxlength: 255,
   },
   createDate: {
