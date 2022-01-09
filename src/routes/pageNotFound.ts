@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 
 const router = Router();
 
@@ -7,6 +7,18 @@ const router = Router();
  * @method         GET
  * @host           /*
  */
-router.use(require("../controllers/pageNotFound").pageNotFound);
+router.use((_: Request, res: Response) => {
+  /**
+   * @description    All NotDefined Routes
+   * @pages          pages/pageNotFound
+   * @param          ['pageTitle', 'message']
+   * @layout         layout
+   */
+  res.render("pages/pageNotFound", {
+    pageTitle: "pageNotFound",
+    message: "Page Not Found",
+    layout: "layout",
+  });
+});
 
 module.exports = router;
