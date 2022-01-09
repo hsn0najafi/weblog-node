@@ -3,9 +3,10 @@ import { Request, Response } from "express";
 import { User } from "../models/User";
 
 /**
- * Page: 'pages/signup'
- * Layout: 'loginSignup'
- * Params: ['pageTitle', 'message']
+ * @description    Signup/Register Page
+ * @pages          pages/signup
+ * @param          [pageTitle, message]
+ * @layout         loginSignup
  */
 export const signupController = (_: Request, res: Response) => {
   res.render("pages/signup", {

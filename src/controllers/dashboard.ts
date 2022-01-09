@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
 
 /**
- * Page: 'pages/dashboard'
- * Layout: 'dashboard'
- * Params: ['pageTitle', 'message']
+ * @description    Dashbord
+ * @pages          pages/dashboard
+ * @param          [pageTitle, message]
+ * @layout         dashboard
  */
 export const dashboardController = (_: Request, res: Response) => {
   res.render("pages/dashboard", {

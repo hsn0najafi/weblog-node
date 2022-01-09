@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
 
 /**
- * Page: 'pages/home'
- * Layout: 'layout' - This is Main Layout - Set Optional
- * Params: ['pageTitle', 'message']
+ * @description    Home Page
+ * @pages          pages/home
+ * @param          [pageTitle, message]
+ * @layout         layout - Default(This Optional)
  */
 export const homeController = (_: Request, res: Response) => {
   res.render("pages/home", {
