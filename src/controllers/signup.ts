@@ -33,12 +33,14 @@ export const handleSignup = async (_: Request, res: Response) => {
     /**
      * Push Errors to a Array and then Show it's
      */
-    err.inner.map((e: any) => {
-      errors.push({
-        name: e.path,
-        message: e.message,
+    if (err.inner !== undefined) {
+      err.inner.map((e: any) => {
+        errors.push({
+          name: e.path,
+          message: e.message,
+        });
       });
-    });
+    }
 
     /**
      * ReRender Register Page for Show Errors
@@ -50,3 +52,4 @@ export const handleSignup = async (_: Request, res: Response) => {
     });
   }
 };
+2;
