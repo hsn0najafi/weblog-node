@@ -39,7 +39,7 @@ const userSchema = new Schema<UserSchema, UserModel>({
 });
 
 /**
- * Yup Schema
+ * Yup Schema - Error Messages
  */
 const schema = object().shape({
   fullName: string()
@@ -66,6 +66,9 @@ const schema = object().shape({
   //
 });
 
+/**
+ * Mongoose Static - Return 'Boolean'
+ */
 userSchema.static("userValidation", function (body) {
   return schema.validate(body, { abortEarly: false });
 });
