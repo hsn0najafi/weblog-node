@@ -57,4 +57,3 @@ export const handleSignup = async (_: Request, res: Response) => {
     });
   }
 };
-2;
