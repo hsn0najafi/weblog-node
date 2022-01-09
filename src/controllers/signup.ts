@@ -24,6 +24,11 @@ export const handleSignup = async (_: Request, res: Response) => {
     await User.userValidation(_.body);
 
     /**
+     * Create a New User on Database
+     */
+    await User.create(_.body);
+
+    /**
      * if Form Valid - Redirect to Login Page
      */
     res.redirect("/users/login");
