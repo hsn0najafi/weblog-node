@@ -4,6 +4,7 @@ import "dotenv/config";
 import express, { Application } from "express";
 import morgan from "morgan";
 import expressEjsLayouts from "express-ejs-layouts";
+import bodyParser from "body-parser";
 
 import { dataBaseConnection } from "./utils/db";
 
@@ -26,8 +27,13 @@ app.set("views", path.join(__dirname, "views"));
 app.use(expressEjsLayouts);
 app.set("layout", "layout");
 
-// Body Parser
-app.use(express.urlencoded({ extended: false }));
+/**
+ * BodyParser
+ * Parse application/x-www-form-urlencoded
+ * Parse application/json
+ */
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Routes
 app.use(require("./routes/home"));
