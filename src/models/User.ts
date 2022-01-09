@@ -1,10 +1,21 @@
-import mongoose from "mongoose";
+import { Model, Schema, model } from "mongoose";
 import { object, ref, string } from "yup";
 
+interface UserSchema {
+  fullName: string;
+  email: string;
+  password: string;
+  createDate: DateConstructor | number;
+}
+
+interface UserModel extends Model<UserSchema> {
+  userValidation(body: any): Boolean;
+}
+
 /**
- * MongoDB Schema
+ * DB Schema
  */
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema<UserSchema, UserModel>({
   fullName: {
     type: String,
     required: true,
@@ -55,8 +66,8 @@ const schema = object().shape({
   //
 });
 
-userSchema.statics.userValidation = function (body) {
+userSchema.static("userValidation", function (body) {
   return schema.validate(body, { abortEarly: false });
-};
+});
 
-export const User = mongoose.model("User", userSchema);
+export const User = model<UserSchema, UserModel>("User", userSchema);
