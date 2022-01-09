@@ -19,19 +19,19 @@ interface UserModel extends Model<UserSchema> {
 const userSchema = new Schema<UserSchema, UserModel>({
   fullName: {
     type: String,
-    required: true,
+    required: [true, "نام و نام خانوادگی الزامی است"],
     trim: true,
   },
   email: {
     type: String,
-    required: true,
+    required: [true, "ایمیل الزامی هست"],
     unique: true,
   },
   password: {
     type: String,
-    required: true,
-    minlength: 4,
-    maxlength: 255,
+    required: [true, "کلمه عبور الزامی هست"],
+    minlength: [4, "کلمه عبور نباید کمتر از ۴ کاراکتر باشد"],
+    maxlength: [255, "کلمه عبور نباید بیشتر از ۲۵۵ باشد"],
   },
   createDate: {
     type: Date,
