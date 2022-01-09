@@ -3,7 +3,9 @@ import { Router } from "express";
 const router = Router();
 
 /**
- * Route: GET '/'
+ * @description    Home
+ * @method         GET
+ * @host           /
  */
 router.get("/", require("../controllers/home").homeController);
 
