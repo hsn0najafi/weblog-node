@@ -38,14 +38,27 @@ export const handleSignup = async (_: Request, res: Response) => {
 
     /**
      * Push Errors to a Array and then Show it's
+     * Errors Controller
      */
-    if (err.inner !== undefined) {
-      err.inner.map((e: any) => {
-        errors.push({
-          name: e.path,
-          message: e.message,
+    if (err !== undefined) {
+      if (err.inner !== undefined)
+        err.inner.map((e: any) => {
+          errors.push({
+            name: e.path,
+            message: e.message,
+          });
         });
-      });
+
+      /**
+       * This is for Duplicate Email Addresses
+       * 'mongoose' byDefault not Support This - (mongoose-unique-validator)
+       */
+      if (err.code === 11000) {
+        errors.push({
+          name: "email",
+          message: "این ایمیل قبلا ثبت شده",
+        });
+      }
     }
 
     /**
