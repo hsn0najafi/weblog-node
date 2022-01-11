@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 
 /**
- * @description    Login and Auth Page
+ * @description    Login Page
  * @pages          pages/login
  * @param          [pageTitle, message]
  * @layout         loginSignup
@@ -13,3 +13,15 @@ export const loginController = (_: Request, res: Response) => {
     layout: "loginSignup",
   });
 };
+
+/**
+ * @description    Auth
+ * @pages          pages/login
+ * @param          [pageTitle, message]
+ * @layout         loginSignup
+ */
+export const handleLogin = (
+  _: Request,
+  res: Response,
+  next: NextFunction
+) => {};
