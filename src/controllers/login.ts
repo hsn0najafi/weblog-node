@@ -9,7 +9,7 @@ import { Request, Response } from "express";
 export const loginController = (_: Request, res: Response) => {
   res.render("pages/login", {
     pageTitle: "Login",
-    message: "Login",
+    message: _.flash("successfullLoginMessage"),
     layout: "loginSignup",
   });
 };
