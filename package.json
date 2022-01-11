@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/hsn8najafi/weblog#readme",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/ejs": "^3.1.0",
     "@types/express": "^4.17.13",
     "@types/express-ejs-layouts": "^2.5.0",

@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import bcryptjs from "bcryptjs";
 
 import { User } from "../models/User";
 
@@ -34,7 +35,7 @@ export const handleSignup = async (_: Request, res: Response) => {
     /**
      * Handle Duplicate Email Error
      */
-    const { email } = _.body;
+    const { email, password, fullName } = _.body;
     const duplicateUserByEmail = await User.findOne({ email });
     if (duplicateUserByEmail) {
       errors.push({
@@ -43,14 +44,27 @@ export const handleSignup = async (_: Request, res: Response) => {
       });
     } else {
       /**
-       * Create a New User on Database
+       * Hash Password
        */
-      await User.create(_.body);
+      bcryptjs.genSalt(5, (err, salt) => {
+        if (err) throw err;
+        bcryptjs.hash(password, salt, async (err, hash) => {
+          if (err) throw err;
+          /**
+           * Create a New User on Database
+           */
+          await User.create({
+            fullName,
+            email,
+            password: hash,
+          });
 
-      /**
-       * if Form Valid - Redirect to Login Page
-       */
-      res.redirect("/users/login");
+          /**
+           * if Form Valid - Redirect to Login Page
+           */
+          res.redirect("/users/login");
+        });
+      });
     }
   } catch (err: any) {
     /**
