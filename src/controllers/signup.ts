@@ -46,25 +46,21 @@ export const handleSignup = async (_: Request, res: Response) => {
       /**
        * Hash Password
        */
-      bcryptjs.genSalt(5, (err, salt) => {
-        if (err) throw err;
-        bcryptjs.hash(password, salt, async (err, hash) => {
-          if (err) throw err;
-          /**
-           * Create a New User on Database
-           */
-          await User.create({
-            fullName,
-            email,
-            password: hash,
-          });
+      const hash = await bcryptjs.hash(password, 10);
 
-          /**
-           * if Form Valid - Redirect to Login Page
-           */
-          res.redirect("/users/login");
-        });
+      /**
+       * Create a New User on Database
+       */
+      await User.create({
+        fullName,
+        email,
+        password: hash,
       });
+
+      /**
+       * if Form Valid - Redirect to Login Page
+       */
+      res.redirect("/users/login");
     }
   } catch (err: any) {
     /**
