@@ -13,7 +13,7 @@ export const signupController = (_: Request, res: Response) => {
   res.render("pages/signup", {
     pageTitle: "Signup",
     layout: "loginSignup",
-    errors: ["hghsggfyewgayw"],
+    errors: [],
   });
 };
 
