@@ -10,6 +10,13 @@ const router = Router();
 router.get("/login", require("../controllers/login").loginController);
 
 /**
+ * @description    Login/Auth Handler
+ * @method         POST
+ * @host           /users/login
+ */
+router.get("/login", require("../controllers/login").handleLogin);
+
+/**
  * @description    Register/Signup Page
  * @method         GET
  * @host           /users/signup
