@@ -58,3 +58,12 @@ classNameToggler(
   ["userProfile-popup__hidden"],
   ["userProfile-popup__hidden__show"]
 );
+
+/**
+ * Hidden Menu
+ */
+classNameToggler(
+  ["hamburgerButton"],
+  ["sliderMenu__main"],
+  ["sliderMenu-show"]
+);
