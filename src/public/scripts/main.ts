@@ -1,51 +1,56 @@
-const hamburgerButton = document.querySelector(".hamburgerButton");
-const hamburgerButton_lines = document.querySelectorAll(".hamburgerButton div");
+/**
+ * Add and Remove [ClassList] to [classes]
+ * @param eventHandler        Starts The Operation
+ * @param classes             Host of The Operation
+ * @param togglableClasses    Addables and Removables
+ */
+const classNameToggler = (
+  eventHandlers: string[],
+  classes: string[],
+  togglableClasses: string[]
+): void => {
+  const main = () => {
+    // Select Els
+    for (let a = 0; a < eventHandlers.length; a++) {
+      const targetEl = document.querySelector("." + eventHandlers[a])!;
+      addEventListener(targetEl);
+    }
+  };
 
-const sliderMenu__main = document.querySelectorAll(".sliderMenu__main");
+  // EventListner for Els
+  const addEventListener = (targetEl: Element) => {
+    targetEl!.addEventListener("click", () => {
+      toggle();
+    });
+  };
 
-const userProfile = document.querySelector(".userPicture");
-const userProfilePopup__hidden = document.querySelectorAll(
-  ".userProfile-popup__hidden"
+  // Toggle Classes
+  const toggle = () => {
+    for (let b = 0; b < classes.length; b++) {
+      document
+        .querySelector("." + classes[b])!
+        .classList.toggle(togglableClasses[b]);
+    }
+  };
+
+  // Classes Length Should be Equal
+  if (togglableClasses.length === classes.length) main();
+};
+
+/**
+ * Hamburger Menu
+ */
+classNameToggler(
+  ["hamburgerButton"],
+  ["hamLine01", "hamLine02", "hamLine03"],
+  ["hamburgerButton-top", "hamburgerButton-mid", "hamburgerButton-bot"]
 );
 
 /**
- * Add and Remove a ClassName to DOMElement
+ * UserProfile PopUp
  */
-const classNameToggler = (
-  targetElements: NodeListOf<Element>,
-  classNames: string[]
-) => {
-  if (targetElements.length === classNames.length) {
-    for (let i = 0; i < classNames.length; i++) {
-      targetElements[i].classList.toggle(classNames[i]);
-    }
-  }
-};
-
-/**
- * Rotate hamburgerMenu Button Lines
- */
-hamburgerButton?.addEventListener("click", () => {
-  classNameToggler(hamburgerButton_lines, [
-    "hamburgerButton-top",
-    "hamburgerButton-mid",
-    "hamburgerButton-bot",
-  ]);
-  showMenu();
-});
-
-/**
- * Show or Hide hamburger Menu
- */
-const showMenu = () => {
-  classNameToggler(sliderMenu__main, ["sliderMenu-show"]);
-};
-
-/**
- * Show and Hide UserProfile PopUp
- */
-userProfile?.addEventListener("click", () => {
-  classNameToggler(userProfilePopup__hidden, [
-    "userProfile-popup__hidden__show",
-  ]);
-});
+classNameToggler(
+  ["userPicture"],
+  ["userProfile-popup__hidden"],
+  ["userProfile-popup__hidden__show"]
+);
