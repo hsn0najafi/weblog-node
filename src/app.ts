@@ -7,11 +7,17 @@ import expressEjsLayouts from "express-ejs-layouts";
 import bodyParser from "body-parser";
 import connectFlash from "connect-flash";
 import expressSession from "express-session";
+import passport from "passport";
 
 import { dataBaseConnection } from "./utils/db";
 
 // DataBase Connection
 dataBaseConnection();
+
+/**
+ * 'passport' Configiration
+ */
+import "./utils/auth";
 
 const app: Application = express();
 
@@ -48,6 +54,10 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+// PassportJS
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Flash
 app.use(connectFlash());
