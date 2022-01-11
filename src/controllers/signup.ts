@@ -37,21 +37,21 @@ export const handleSignup = async (_: Request, res: Response) => {
     const { email } = _.body;
     const duplicateUserByEmail = await User.findOne({ email });
     if (duplicateUserByEmail) {
-      return errors.push({
+      errors.push({
         name: "email",
         message: "این ایمیل قبلا ثبت شده",
       });
+    } else {
+      /**
+       * Create a New User on Database
+       */
+      await User.create(_.body);
+
+      /**
+       * if Form Valid - Redirect to Login Page
+       */
+      res.redirect("/users/login");
     }
-
-    /**
-     * Create a New User on Database
-     */
-    await User.create(_.body);
-
-    /**
-     * if Form Valid - Redirect to Login Page
-     */
-    res.redirect("/users/login");
   } catch (err: any) {
     /**
      * Push Errors to a Array and then Show it's
