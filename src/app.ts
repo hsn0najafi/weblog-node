@@ -5,6 +5,8 @@ import express, { Application } from "express";
 import morgan from "morgan";
 import expressEjsLayouts from "express-ejs-layouts";
 import bodyParser from "body-parser";
+import connectFlash from "connect-flash";
+import expressSession from "express-session";
 
 import { dataBaseConnection } from "./utils/db";
 
@@ -34,6 +36,18 @@ app.set("layout", "layout");
  */
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Sessions
+app.use(
+  expressSession({
+    secret: "dsvhrvbhjvsbhfb",
+    cookie: {
+      maxAge: 10000,
+    },
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 // Routes
 app.use(require("./routes/home"));
