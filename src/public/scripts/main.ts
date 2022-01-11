@@ -33,8 +33,12 @@ const classNameToggler = (
     }
   };
 
+  const sayError = () => {
+    throw new Error("Hey, ClassNames List Should be Equal");
+  };
+
   // Classes Length Should be Equal
-  if (togglableClasses.length === classes.length) main();
+  togglableClasses.length === classes.length ? main() : sayError();
 };
 
 /**
