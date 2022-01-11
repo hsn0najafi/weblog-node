@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import passport from "passport";
 
 /**
  * @description    Login Page
@@ -20,8 +21,11 @@ export const loginController = (_: Request, res: Response) => {
  * @param          [pageTitle, message]
  * @layout         loginSignup
  */
-export const handleLogin = (
-  _: Request,
-  res: Response,
-  next: NextFunction
-) => {};
+export const handleLogin = (_: Request, res: Response, next: NextFunction) => {
+  passport.authenticate("local", {
+    successRedirect: "/admin/dashboard",
+    failureRedirect: "/users/login",
+    failureFlash: true,
+    // failureFlash: "مشکلی پیش آمده - ارور های فایل کانفیق رو نشون نده",
+  })(_, res, next);
+};
