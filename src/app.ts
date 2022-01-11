@@ -49,6 +49,9 @@ app.use(
   })
 );
 
+// Flash
+app.use(connectFlash());
+
 // Routes
 app.use(require("./routes/home"));
 app.use("/users", require("./routes/loginSignup"));
