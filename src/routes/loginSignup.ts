@@ -14,7 +14,7 @@ router.get("/login", require("../controllers/login").loginController);
  * @method         POST
  * @host           /users/login
  */
-router.get("/login", require("../controllers/login").handleLogin);
+router.post("/login", require("../controllers/login").handleLogin);
 
 /**
  * @description    Register/Signup Page
