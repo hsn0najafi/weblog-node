@@ -10,7 +10,7 @@ import passport from "passport";
 export const loginController = (_: Request, res: Response) => {
   res.render("pages/login", {
     pageTitle: "Login",
-    message: _.flash("successfullLoginMessage"),
+    message: _.flash("successMessage"),
     error: _.flash("error"),
     layout: "loginSignup",
   });
@@ -29,4 +29,12 @@ export const handleLogin = (_: Request, res: Response, next: NextFunction) => {
     failureFlash: true,
     // failureFlash: "مشکلی پیش آمده - ارور های فایل کانفیق رو نشون نده",
   })(_, res, next);
+};
+
+/**
+ * @description    Logout
+ */
+export const handleLogout = (_: Request, res: Response, next: NextFunction) => {
+  _.logOut();
+  _.flash("successMessage");
 };
