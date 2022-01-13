@@ -11,5 +11,6 @@ export const dashboardController = (_: Request, res: Response) => {
     pageTitle: "Dashboard",
     message: "Dashboard",
     layout: "dashboard",
+    userFullName: _.user!.fullName,
   });
 };
