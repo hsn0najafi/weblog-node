@@ -59,7 +59,7 @@ export const handleSignup = async (_: Request, res: Response) => {
       /**
        * flash
        */
-      _.flash("successfullLoginMessage", "خووووووش اومدی.");
+      _.flash("successMessage", "خووووووش اومدی.");
 
       /**
        * if Form Valid - Redirect to Login Page
