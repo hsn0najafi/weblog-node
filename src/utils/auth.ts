@@ -13,7 +13,7 @@ passport.use(
       try {
         const user = await User.findOne({ email });
         /**
-         * Can't File Username
+         * Can't Find Username
          */
         if (!user) {
           return done(null, false, {
