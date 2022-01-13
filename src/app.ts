@@ -17,7 +17,7 @@ dataBaseConnection();
 /**
  * 'passport' Configiration
  */
-import "./utils/auth";
+import "./utils/passport";
 
 const app: Application = express();
 
