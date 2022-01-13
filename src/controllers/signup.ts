@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import bcryptjs from "bcryptjs";
 
 import { User } from "../models/User";
 
@@ -34,7 +33,7 @@ export const handleSignup = async (_: Request, res: Response) => {
     /**
      * Handle Duplicate Email Error
      */
-    const { email, password, fullName } = _.body;
+    const { email } = _.body;
     const duplicateUserByEmail = await User.findOne({ email });
     if (duplicateUserByEmail) {
       errors.push({
@@ -43,18 +42,9 @@ export const handleSignup = async (_: Request, res: Response) => {
       });
     } else {
       /**
-       * Hash Password
-       */
-      const hash = await bcryptjs.hash(password, 10);
-
-      /**
        * Create a New User on Database
        */
-      await User.create({
-        fullName,
-        email,
-        password: hash,
-      });
+      await User.create(_.body);
 
       /**
        * flash

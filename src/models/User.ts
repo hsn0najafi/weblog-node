@@ -1,4 +1,5 @@
 import { Model, Schema, model } from "mongoose";
+import bcryptjs from "bcryptjs";
 
 import { schema } from "./secure/userAuth";
 
@@ -44,6 +45,20 @@ const userSchema = new Schema<UserSchema, UserModel>({
  */
 userSchema.static("userValidation", function (body) {
   return schema.validate(body, { abortEarly: false });
+});
+
+/**
+ * Hash Password
+ */
+userSchema.pre("save", function (next) {
+  let user = this;
+
+  if (!user.isModified("password")) return next();
+  bcryptjs.hash(user.password, 10, (err, hash) => {
+    if (err) return next(err);
+    user.password = hash;
+    next();
+  });
 });
 
 export const User = model<UserSchema, UserModel>("User", userSchema);
