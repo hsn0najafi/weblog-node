@@ -37,4 +37,5 @@ export const handleLogin = (_: Request, res: Response, next: NextFunction) => {
 export const handleLogout = (_: Request, res: Response, next: NextFunction) => {
   _.logOut();
   _.flash("successMessage", "با موفقیت اومدی بیرون");
+  res.redirect("/users/login");
 };
