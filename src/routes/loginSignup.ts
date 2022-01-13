@@ -30,4 +30,11 @@ router.get("/login", require("../controllers/login").loginController);
  */
 router.post("/login", require("../controllers/login").handleLogin);
 
+/**
+ * @description    Logout
+ * @method         GET
+ * @host           /users/logout
+ */
+router.post("/logout", require("../controllers/login").handleLogout);
+
 module.exports = router;
