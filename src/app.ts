@@ -8,6 +8,7 @@ import bodyParser from "body-parser";
 import connectFlash from "connect-flash";
 import expressSession from "express-session";
 import passport from "passport";
+import MongoStore from "connect-mongo";
 
 import { dataBaseConnection } from "./utils/db";
 
@@ -52,6 +53,12 @@ app.use(
     },
     resave: false,
     saveUninitialized: false,
+    /**
+     * Persistent Session - Save to MongoDB
+     */
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
   })
 );
 
