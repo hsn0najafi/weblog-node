@@ -1,5 +1,7 @@
 import { Router } from "express";
 
+import { auth } from "../middlewares/auth";
+
 const router = Router();
 
 /**
@@ -8,7 +10,9 @@ const router = Router();
  * @host           /admin/dashboard
  */
 router.get(
-  "/dashboard", require("../controllers/dashboard").dashboardController
+  "/dashboard",
+  auth,
+  require("../controllers/dashboard").dashboardController
 );
 
 module.exports = router;

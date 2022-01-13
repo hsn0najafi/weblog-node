@@ -46,9 +46,9 @@ app.use(bodyParser.json());
 // Sessions
 app.use(
   expressSession({
-    secret: "dsvhrvbhjvsbhfb",
+    secret: "secret",
     cookie: {
-      maxAge: 10000,
+      maxAge: 60000,
     },
     resave: false,
     saveUninitialized: false,
