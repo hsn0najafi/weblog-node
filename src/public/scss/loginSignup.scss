@@ -49,6 +49,21 @@
   }
 }
 
+.checkbox-rememberMe {
+  @include flexCenter(row, space-between, center);
+  * {
+    margin: 5px 20px;
+  }
+  input {
+    width: 15px !important;
+    height: 15px;
+    box-shadow: none !important;
+  }
+  margin-top: 10px;
+  box-shadow: $shadow-1;
+  border-radius: $radius-2;
+}
+
 .footer {
   @include flexCenter(row, center, center);
   margin: 10px auto;
