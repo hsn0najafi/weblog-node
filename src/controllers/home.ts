@@ -11,6 +11,5 @@ export const homeController = (_: Request, res: Response) => {
     pageTitle: "Home",
     message: "Hello",
     layout: "layout",
-    userFullName: "noUser",
   });
 };

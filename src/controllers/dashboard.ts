@@ -6,6 +6,16 @@ import { Request, Response } from "express";
  * @param          [pageTitle, message]
  * @layout         dashboard
  */
+declare global {
+  namespace Express {
+    interface User {
+      fullName: string;
+      email: string;
+      password: string;
+      createDate: DateConstructor | number;
+    }
+  }
+}
 export const dashboardController = (_: Request, res: Response) => {
   res.render("pages/dashboard", {
     pageTitle: "Dashboard",
