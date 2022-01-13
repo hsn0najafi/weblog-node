@@ -11,6 +11,7 @@ export const loginController = (_: Request, res: Response) => {
   res.render("pages/login", {
     pageTitle: "Login",
     message: _.flash("successfullLoginMessage"),
+    error: _.flash("error"),
     layout: "loginSignup",
   });
 };
