@@ -24,11 +24,22 @@ export const loginController = (_: Request, res: Response) => {
  */
 export const handleLogin = (_: Request, res: Response, next: NextFunction) => {
   passport.authenticate("local", {
-    successRedirect: "/admin/dashboard",
+    // successRedirect: "/admin/dashboard",
     failureRedirect: "/users/login",
     failureFlash: true,
     // failureFlash: "مشکلی پیش آمده - ارور های فایل کانفیق رو نشون نده",
   })(_, res, next);
+};
+
+/**
+ * @description    RememberMe
+ */
+export const handleRememberMe = (_: Request, res: Response) => {
+  if (_.body.rememberMe) {
+    _.session.cookie.originalMaxAge = 24 * 60 * 60 * 1000; // 1 Day
+  }
+
+  res.redirect("/admin/dashboard");
 };
 
 /**

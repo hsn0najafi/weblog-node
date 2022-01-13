@@ -1,6 +1,12 @@
 import { Router } from "express";
 
 import { auth } from "../middlewares/auth";
+import {
+  loginController,
+  handleLogin,
+  handleRememberMe,
+  handleLogout,
+} from "../controllers/login";
 
 const router = Router();
 
@@ -23,20 +29,20 @@ router.post("/signup", require("../controllers/signup").handleSignup);
  * @method         GET
  * @host           /users/login
  */
-router.get("/login", require("../controllers/login").loginController);
+router.get("/login", loginController);
 
 /**
  * @description    Login/Auth Handler
  * @method         POST
  * @host           /users/login
  */
-router.post("/login", require("../controllers/login").handleLogin);
+router.post("/login", handleLogin, handleRememberMe);
 
 /**
  * @description    Logout
  * @method         GET
  * @host           /users/logout
  */
-router.get("/logout", auth, require("../controllers/login").handleLogout);
+router.get("/logout", auth, handleLogout);
 
 module.exports = router;
