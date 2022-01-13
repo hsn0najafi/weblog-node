@@ -127,10 +127,17 @@
         box-shadow: $shadow-1;
         background-color: #efefef;
         border-radius: $radius-2;
+        a {
+          font-weight: bolder;
+          color: $red;
+        }
+        a:hover {
+          color: white;
+        }
       }
       li:hover {
         background-color: $blue;
-        color: white;
+        color: white !important;
         box-shadow: none;
       }
     }
