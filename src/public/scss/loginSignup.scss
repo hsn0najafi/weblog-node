@@ -50,7 +50,7 @@
 }
 
 .checkbox-rememberMe {
-  @include flexCenter(row, space-between, center);
+  @include flexCenter(row, center, center);
   * {
     margin: 5px 20px;
   }
@@ -59,6 +59,7 @@
     height: 15px;
     box-shadow: none !important;
   }
+  width: 50%;
   margin-top: 10px;
   box-shadow: $shadow-1;
   border-radius: $radius-2;
