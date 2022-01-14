@@ -11,11 +11,11 @@ import passport from "passport";
 import MongoStore from "connect-mongo";
 import Debug from "debug";
 
-// Debug Main NameSpace
-const debug = Debug("weblog");
-
 import { dataBaseConnection } from "./utils/db";
 import { myStream } from "./config/winston";
+
+// Debug Main NameSpace
+const debug = Debug("weblog");
 
 // DataBase Connection
 dataBaseConnection();
