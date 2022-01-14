@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/hsn8najafi/weblog#readme",
   "devDependencies": {
+    "@types/app-root-path": "^1.2.4",
     "@types/bcryptjs": "^2.4.2",
     "@types/connect-flash": "^0.0.37",
     "@types/debug": "^4.1.7",
