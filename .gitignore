@@ -10,3 +10,6 @@ dist/public/css/*.css
 # Ignore Frameworks
 !dist/public/css/*.min.css
 
+# Ignore Winston Log Files
+dist/logs
+
