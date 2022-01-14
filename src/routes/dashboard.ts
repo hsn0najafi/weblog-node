@@ -15,4 +15,11 @@ router.get(
   require("../controllers/dashboard").dashboardController
 );
 
+/**
+ * @description    New Post
+ * @method         GET
+ * @host           /admin/newpost
+ */
+router.get("/newpost", auth, require("../controllers/dashboard").handleNewPost);
+
 module.exports = router;
