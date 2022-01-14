@@ -28,7 +28,7 @@ export const dashboardController = (_: Request, res: Response) => {
 /**
  * @description    New Post
  * @pages          pages/private/addPost
- * @param          [pageTitle, message, userFullName]
+ * @param          [pageTitle, message, userFullName, path]
  * @layout         dashboard
  */
 export const handleNewPost = (_: Request, res: Response) => {
@@ -36,5 +36,6 @@ export const handleNewPost = (_: Request, res: Response) => {
     pageTitle: "NewPost",
     layout: "dashboard",
     userFullName: _.user!.fullName,
+    path: "/newpost",
   });
 };
