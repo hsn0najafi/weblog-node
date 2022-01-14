@@ -41,3 +41,15 @@ export const newPost = (_: Request, res: Response) => {
     path: "/newpost",
   });
 };
+
+/**
+ * @description    Handle New Post
+ */
+export const handleNewPost = async (_: Request, res: Response) => {
+  try {
+    await Blog.create({ ..._.body, user: _.body.user });
+    res.redirect("/admin/dashboard");
+  } catch (err) {
+    console.log(err);
+  }
+};
