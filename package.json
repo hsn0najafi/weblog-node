@@ -5,7 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=Production node dist/app.js",
-    "dev": "cross-env NODE_ENV=Development nodemon dist/app.js",
+    "dev": "cross-env NODE_ENV=Development DEBUG=* nodemon dist/app.js",
     "tsc": "tsc -w",
     "sass": "sass --no-source-map -w src/public/scss:dist/public/css"
   },
@@ -40,6 +40,7 @@
     "body-parser": "^1.19.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^4.6.0",
+    "debug": "^4.3.3",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
