@@ -13,7 +13,7 @@ interface BlogModel extends Model<BlogSchema> {}
 /**
  * DB Schema
  */
-const blogSchema: Schema<BlogSchema> = new Schema({
+const blogSchema = new Schema<BlogSchema>({
   title: {
     type: String,
     required: true,
