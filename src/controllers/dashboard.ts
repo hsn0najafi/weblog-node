@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 /**
  * @description    Dashbord
- * @pages          pages/dashboard
+ * @pages          pages/private/dashboard
  * @param          [pageTitle, message]
  * @layout         dashboard
  */
@@ -17,7 +17,7 @@ declare global {
   }
 }
 export const dashboardController = (_: Request, res: Response) => {
-  res.render("pages/dashboard", {
+  res.render("pages/private/dashboard", {
     pageTitle: "Dashboard",
     message: "Dashboard",
     layout: "dashboard",
