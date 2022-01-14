@@ -24,7 +24,7 @@ debug("Connected To Database");
 /**
  * 'passport' Configiration
  */
-import "./utils/passport";
+import "./config/passport";
 
 const app: Application = express();
 

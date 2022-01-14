@@ -5,7 +5,7 @@
 ## Dependencies
 
 ```
-MONGODB_URI=<Your MongoDB URI> on '/.env'
+MONGODB_URI=<Your MongoDB URI>
 ```
 
 ```
