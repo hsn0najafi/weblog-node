@@ -2,6 +2,9 @@ import winston from "winston";
 import appRoot from "app-root-path";
 
 const logger = winston.createLogger({
+  /**
+   * Log File Transports
+   */
   transports: [
     new winston.transports.File({
       level: "info",
@@ -11,6 +14,9 @@ const logger = winston.createLogger({
       maxsize: 10485760,
       maxFiles: 5,
     }),
+    /**
+     * Console Output Transports
+     */
     new winston.transports.Console({
       level: "info",
       handleExceptions: true,
@@ -25,6 +31,6 @@ const logger = winston.createLogger({
 
 export const myStream = {
   write: function (msg: string) {
-    winston.info(msg);
+    logger.info(msg);
   },
 };

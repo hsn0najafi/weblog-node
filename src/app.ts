@@ -15,6 +15,7 @@ import Debug from "debug";
 const debug = Debug("weblog");
 
 import { dataBaseConnection } from "./utils/db";
+import { myStream } from "./config/winston";
 
 // DataBase Connection
 dataBaseConnection();
@@ -28,7 +29,9 @@ import "./utils/passport";
 const app: Application = express();
 
 // Logger
-process.env.NODE_ENV === "Development" && app.use(morgan("dev"));
+process.env.NODE_ENV === "Development"
+  ? app.use(morgan("combined", { stream: myStream }))
+  : null;
 
 // Set '/public' For Static Files
 app.use(express.static(path.join(__dirname, "public")));
