@@ -125,20 +125,31 @@
         text-align: center;
         height: auto;
         box-shadow: $shadow-1;
-        background-color: #efefef;
         border-radius: $radius-2;
-        a {
-          font-weight: bolder;
-          color: $red;
-        }
-        a:hover {
-          color: white;
-        }
       }
       li:hover {
         background-color: $blue;
         color: white !important;
         box-shadow: none;
+      }
+
+      .profile-buttons-container {
+        box-shadow: none;
+        height: 70px;
+        background-color: white !important;
+        @include flexCenter(row, space-around, center);
+        a span {
+          box-shadow: $shadow-1;
+          border-radius: $radius-2;
+          padding: 15px;
+          height: 100%;
+          color: black;
+          font-size: 24px;
+        }
+        a span:hover {
+          background-color: $blue;
+          color: white;
+        }
       }
     }
   }
