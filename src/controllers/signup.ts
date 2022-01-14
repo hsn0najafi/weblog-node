@@ -40,22 +40,26 @@ export const handleSignup = async (_: Request, res: Response) => {
         name: "email",
         message: "این ایمیل قبلا ثبت شده",
       });
-    } else {
-      /**
-       * Create a New User on Database
-       */
-      await User.create(_.body);
-
-      /**
-       * flash
-       */
-      _.flash("successMessage", "خووووووش اومدی.");
-
-      /**
-       * if Form Valid - Redirect to Login Page
-       */
-      res.redirect("/users/login");
+      return res.render("pages/signup", {
+        pageTitle: "Signup",
+        layout: "loginSignup",
+        errors,
+      });
     }
+    /**
+     * Create a New User on Database
+     */
+    await User.create(_.body);
+
+    /**
+     * flash
+     */
+    _.flash("successMessage", "خووووووش اومدی.");
+
+    /**
+     * if Form Valid - Redirect to Login Page
+     */
+    res.redirect("/users/login");
   } catch (err: any) {
     /**
      * Push Errors to a Array and then Show it's
@@ -69,14 +73,13 @@ export const handleSignup = async (_: Request, res: Response) => {
         });
       });
     }
+    /**
+     * ReRender Register Page for Show Errors
+     */
+    res.render("pages/signup", {
+      pageTitle: "Signup",
+      layout: "loginSignup",
+      errors,
+    });
   }
-
-  /**
-   * ReRender Register Page for Show Errors
-   */
-  res.render("pages/signup", {
-    pageTitle: "Signup",
-    layout: "loginSignup",
-    errors,
-  });
 };
