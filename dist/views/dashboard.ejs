@@ -19,7 +19,11 @@
     <title><%= pageTitle %></title>
   </head>
   <body>
+    <% if (typeof path !== 'string') { %>
+    <!-- --- -->
     <%- include ('./includes/navbar.ejs') -%>
+    <!-- --- -->
+    <% } %>
     <!-- --- -->
     <%- body -%>
   </body>
