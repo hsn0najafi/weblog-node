@@ -11,6 +11,7 @@ import passport from "passport";
 import MongoStore from "connect-mongo";
 import Debug from "debug";
 
+// Debug Main NameSpace
 const debug = Debug("weblog");
 
 import { dataBaseConnection } from "./utils/db";
