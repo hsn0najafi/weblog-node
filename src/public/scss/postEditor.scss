@@ -1,0 +1,72 @@
+@import "includes/variables";
+@import "includes/mixins";
+
+.main form {
+  margin: 20px 10px;
+  border-radius: $radius-2;
+  padding: 5px;
+  div {
+    * {
+      margin: 5px 0;
+    }
+    .post-title {
+      width: 100%;
+      padding: 5px;
+      border-radius: $radius-2;
+      border: none;
+      box-shadow: $shadow-2;
+    }
+    *:hover {
+      box-shadow: 0 0 1px 5px transparentize($color: $blue, $amount: 0.5);
+    }
+    select {
+      padding: 5px;
+      border-radius: $radius-2;
+      border: none;
+      box-shadow: $shadow-2;
+      background: white;
+    }
+    textarea {
+      padding: 5px;
+      border-radius: $radius-2;
+      border: none;
+      box-shadow: $shadow-2;
+      background: white;
+      width: 100%;
+      height: 400px;
+      resize: none;
+    }
+  }
+}
+
+.btns {
+  height: 50px;
+  @include flexCenter(row, right, center);
+  .btn-success {
+    height: 100%;
+    padding: 0 50px;
+    border-radius: $radius-2;
+    font-weight: bolder;
+    color: white;
+    margin-left: 20px;
+    background-color: $green;
+    border: none;
+    box-shadow: $shadow-2;
+    height: 80%;
+  }
+  .btn-success:hover {
+    background-color: $blue;
+    color: white;
+    box-shadow: 0 0 0 5px transparentize($color: $blue, $amount: 0.5);
+  }
+  a {
+    margin-right: 15px;
+    padding: 0 10px;
+    border-radius: $radius-2;
+    border: none;
+    box-shadow: $shadow-2;
+    background: red;
+    height: 80%;
+    @include flexCenter(row, center, center);
+  }
+}

@@ -1,1 +1,29 @@
-<div>hello</div>
+<main class="main">
+  <form action="/dashboard/newpost" method="POST">
+    <div>
+      <input
+        type="text"
+        name="title"
+        placeholder="عنوان پست ..."
+        class="post-title"
+      />
+    </div>
+    <div>
+      <select name="status">
+        <option value="عمومی" selected>عمومی</option>
+        <option value="خصوصی">خصوصی</option>
+      </select>
+    </div>
+    <div>
+      <textarea
+        name="body"
+        id="body"
+        placeholder="متن پست رو اینجا بنویس ..."
+      ></textarea>
+    </div>
+    <div class="btns">
+      <input type="submit" class="btn-success" value="ساخت پست" />
+      <a href="/admin/dashboard" class="btn btn-warning m-2">انصراف</a>
+    </div>
+  </form>
+</main>
