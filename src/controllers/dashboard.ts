@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 
+import { Blog } from "../models/Blog";
+
 /**
  * @description    Dashbord
  * @pages          pages/private/dashboard
@@ -31,7 +33,7 @@ export const dashboardController = (_: Request, res: Response) => {
  * @param          [pageTitle, message, userFullName, path]
  * @layout         dashboard
  */
-export const handleNewPost = (_: Request, res: Response) => {
+export const newPost = (_: Request, res: Response) => {
   res.render("pages/private/addPost", {
     pageTitle: "NewPost",
     layout: "dashboard",

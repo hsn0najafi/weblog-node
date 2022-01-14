@@ -20,6 +20,6 @@ router.get(
  * @method         GET
  * @host           /admin/newpost
  */
-router.get("/newpost", auth, require("../controllers/dashboard").handleNewPost);
+router.get("/newpost", auth, require("../controllers/dashboard").newPost);
 
 module.exports = router;
