@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import passport from "passport";
+import fetch from "node-fetch";
 
 /**
  * @description    Login Page
@@ -22,13 +23,40 @@ export const loginController = (_: Request, res: Response) => {
  * @param          [pageTitle, message]
  * @layout         loginSignup
  */
-export const handleLogin = (_: Request, res: Response, next: NextFunction) => {
-  passport.authenticate("local", {
-    // successRedirect: "/admin/dashboard",
-    failureRedirect: "/users/login",
-    failureFlash: true,
-    // failureFlash: "مشکلی پیش آمده - ارور های فایل کانفیق رو نشون نده",
-  })(_, res, next);
+export const handleLogin = async (
+  _: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  if (!_.body["g-recaptcha-response"]) {
+    _.flash(
+      "error",
+      "هیییی, تو که نمیخوای مثل یه ربات باهات رفتار کنم؟ پس اعتبار سنجی رو انجام بده"
+    );
+    return res.redirect("/users/login");
+  }
+  const secretKey = process.env.CAPTCHA_SECRET;
+  const authUrl = `https://google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${_.body["g-recaptcha-response"]}&remoteip=${_.socket.remoteAddress}`;
+
+  const response = await fetch(authUrl, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+    },
+  });
+  const json: any = await response.json();
+  if (json.success) {
+    passport.authenticate("local", {
+      // successRedirect: "/admin/dashboard",
+      failureRedirect: "/users/login",
+      failureFlash: true,
+      // failureFlash: "مشکلی پیش آمده - ارور های فایل کانفیق رو نشون نده",
+    })(_, res, next);
+  } else {
+    _.flash("error", "مشکلی در اعتبار سنجی هست");
+    res.redirect("/users/login");
+  }
 };
 
 /**
