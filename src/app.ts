@@ -9,11 +9,15 @@ import connectFlash from "connect-flash";
 import expressSession from "express-session";
 import passport from "passport";
 import MongoStore from "connect-mongo";
+import Debug from "debug";
+
+const debug = Debug("weblog");
 
 import { dataBaseConnection } from "./utils/db";
 
 // DataBase Connection
 dataBaseConnection();
+debug("Connected To Database");
 
 /**
  * 'passport' Configiration

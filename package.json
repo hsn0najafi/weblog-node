@@ -5,7 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=Production node dist/app.js",
-    "dev": "cross-env NODE_ENV=Development DEBUG=* nodemon dist/app.js",
+    "dev": "cross-env NODE_ENV=Development DEBUG=weblog nodemon dist/app.js",
     "tsc": "tsc -w",
     "sass": "sass --no-source-map -w src/public/scss:dist/public/css"
   },
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/connect-flash": "^0.0.37",
+    "@types/debug": "^4.1.7",
     "@types/ejs": "^3.1.0",
     "@types/express": "^4.17.13",
     "@types/express-ejs-layouts": "^2.5.0",
