@@ -3,7 +3,7 @@ import { Schema, Model, model, Types, Document } from "mongoose";
 interface BlogSchema extends Document {
   title: string;
   body: string;
-  status?: "public" | "private";
+  status?: "عمومی" | "خصوصی";
   user?: Types.ObjectId;
   createDate?: DateConstructor | number;
 }
@@ -27,8 +27,8 @@ const blogSchema: Schema<BlogSchema> = new Schema({
   },
   status: {
     type: String,
-    default: "public",
-    enum: ["public", "private"],
+    default: "عمومی",
+    enum: ["عمومی", "خصوصی"],
   },
   user: {
     type: Types.ObjectId,
