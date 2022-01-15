@@ -1,38 +1,33 @@
 import { Router } from "express";
 
+import {
+  dashboardController,
+  newPost,
+  handleNewPost,
+} from "../controllers/dashboard";
 import { auth } from "../middlewares/auth";
 
 const router = Router();
 
 /**
- * @description    Dashboard
+ * @description    Show Dashboard
  * @method         GET
  * @host           /admin/dashboard
  */
-router.get(
-  "/dashboard",
-  auth,
-  require("../controllers/dashboard").dashboardController
-);
+router.get("/dashboard", auth, dashboardController);
 
 /**
- * @description    New Post
+ * @description    Show New Post
  * @method         GET
- * @host           /admin/newpost
+ * @host           /admin/add-post
  */
-router.get("/newpost", auth, require("../controllers/dashboard").newPost);
-
-module.exports = router;
+router.get("/add-post", auth, newPost);
 
 /**
  * @description    Handle New Post
  * @method         POST
- * @host           /admin/newpost
+ * @host           /admin/add-post
  */
-router.post(
-  "/newpost",
-  auth,
-  require("../controllers/dashboard").handleNewPost
-);
+router.post("/add-post", auth, handleNewPost);
 
 module.exports = router;

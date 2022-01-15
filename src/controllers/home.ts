@@ -3,7 +3,6 @@ import { Request, Response } from "express";
 /**
  * @description    Home Page
  * @pages          pages/home
- * @param          [pageTitle, message]
  * @layout         layout - Default(This Optional)
  */
 export const homeController = (_: Request, res: Response) => {

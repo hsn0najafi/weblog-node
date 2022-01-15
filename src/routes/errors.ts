@@ -3,18 +3,12 @@ import { Request, Response, Router } from "express";
 const router = Router();
 
 /**
- * @description    All NotDefined Routes
+ * @description    Show 404
  * @method         GET
  * @host           /*
  */
 router.use((_: Request, res: Response) => {
-  /**
-   * @description    All NotDefined Routes
-   * @pages          pages/pageNotFound
-   * @param          [pageTitle, message]
-   * @layout         layout - Default(This Optional)
-   */
-  res.render("pages/pageNotFound", {
+  res.render("pages/errors/404", {
     pageTitle: "pageNotFound",
     message: "Page Not Found",
     layout: "layout",

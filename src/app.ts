@@ -22,10 +22,11 @@ dataBaseConnection();
 debug("Connected To Database");
 
 /**
- * 'passport' Configiration
+ * 'passportJS' Configiration
  */
 import "./config/passport";
 
+// App
 const app: Application = express();
 
 // Logger
@@ -71,14 +72,14 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Flash
+// FlashMessager
 app.use(connectFlash());
 
 // Routes
 app.use(require("./routes/home"));
 app.use("/users", require("./routes/loginSignup"));
 app.use("/admin", require("./routes/dashboard"));
-app.use(require("./routes/pageNotFound"));
+app.use(require("./routes/errors"));
 
 const { PORT, HOST, NODE_ENV } = process.env;
 app.listen(PORT, () =>

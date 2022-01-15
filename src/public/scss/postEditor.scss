@@ -16,9 +16,9 @@
       border: none;
       box-shadow: $shadow-2;
     }
-    *:hover {
-      box-shadow: 0 0 1px 5px transparentize($color: $blue, $amount: 0.5);
-    }
+    // *:hover {
+    //   box-shadow: 0 0 1px 5px transparentize($color: $blue, $amount: 0.5);
+    // }
     select {
       padding: 5px;
       border-radius: $radius-2;

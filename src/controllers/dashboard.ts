@@ -3,9 +3,8 @@ import { Request, Response } from "express";
 import { Blog } from "../models/Blog";
 
 /**
- * @description    Dashbord
- * @pages          pages/private/dashboard
- * @param          [pageTitle, message, userFullName]
+ * @description    Show Dashbord
+ * @pages          pages/admin/dashboard
  * @layout         dashboard
  */
 declare global {
@@ -19,7 +18,7 @@ declare global {
   }
 }
 export const dashboardController = (_: Request, res: Response) => {
-  res.render("pages/private/dashboard", {
+  res.render("pages/admin/dashboard", {
     pageTitle: "Dashboard",
     message: "Dashboard",
     layout: "dashboard",
@@ -28,13 +27,12 @@ export const dashboardController = (_: Request, res: Response) => {
 };
 
 /**
- * @description    New Post
- * @pages          pages/private/addPost
- * @param          [pageTitle, message, userFullName, path]
+ * @description    Show New Post
+ * @pages          pages/users/addPost
  * @layout         dashboard
  */
 export const newPost = (_: Request, res: Response) => {
-  res.render("pages/private/addPost", {
+  res.render("pages/users/addPost", {
     pageTitle: "NewPost",
     layout: "dashboard",
     userFullName: _.user!.fullName,

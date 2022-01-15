@@ -1,11 +1,9 @@
 # weblog
 
-### Weblog - Express.js
-
-## Dependencies
+## Weblog - Express.js
 
 ```
-MONGODB_URI=<Your MongoDB URI>
+vi ./.env
 ```
 
 ```
@@ -20,14 +18,12 @@ npm run tsc
 npm run sass
 ```
 
-## Run
-
 ```
 npm start
 ```
 
-#### or
-
 ```
 npm run dev
 ```
+
+## ScreenShots

@@ -3,7 +3,7 @@ import { Router } from "express";
 const router = Router();
 
 /**
- * @description    Home
+ * @description    Show Home Page
  * @method         GET
  * @host           /
  */

@@ -9,21 +9,6 @@ const classNameToggler = (
   classes: string[],
   togglableClasses: string[]
 ): void => {
-  const main = () => {
-    // Select Els
-    for (let a = 0; a < eventHandlers.length; a++) {
-      const targetEl = document.querySelector("." + eventHandlers[a])!;
-      addEventListener(targetEl);
-    }
-  };
-
-  // EventListner for Els
-  const addEventListener = (targetEl: Element) => {
-    targetEl!.addEventListener("click", () => {
-      toggle();
-    });
-  };
-
   // Toggle Classes
   const toggle = () => {
     for (let b = 0; b < classes.length; b++) {
@@ -33,12 +18,15 @@ const classNameToggler = (
     }
   };
 
-  const sayError = () => {
+  // Main
+  if (togglableClasses.length === classes.length) {
+    for (let a = 0; a < eventHandlers.length; a++) {
+      const targetEl = document.querySelector("." + eventHandlers[a])!;
+      targetEl!.addEventListener("click", () => toggle());
+    }
+  } else {
     throw new Error("Hey, ClassNames List Should be Equal");
-  };
-
-  // Classes Length Should be Equal
-  togglableClasses.length === classes.length ? main() : sayError();
+  }
 };
 
 /**

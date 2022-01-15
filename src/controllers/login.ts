@@ -4,12 +4,11 @@ import fetch from "node-fetch";
 
 /**
  * @description    Login Page
- * @pages          pages/login
- * @param          [pageTitle, message]
+ * @pages          pages/users/login
  * @layout         loginSignup
  */
 export const loginController = (_: Request, res: Response) => {
-  res.render("pages/login", {
+  res.render("pages/users/login", {
     pageTitle: "Login",
     message: _.flash("successMessage"),
     error: _.flash("error"),
@@ -19,8 +18,7 @@ export const loginController = (_: Request, res: Response) => {
 
 /**
  * @description    Auth
- * @pages          pages/login
- * @param          [pageTitle, message]
+ * @pages          pages/users/login
  * @layout         loginSignup
  */
 export const handleLogin = async (
