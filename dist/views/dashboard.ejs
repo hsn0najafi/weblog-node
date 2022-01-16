@@ -9,21 +9,16 @@
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/animate.min.css" />
     <link rel="stylesheet" href="/css/all.min.css" />
-    <!-- ---------------------------------------------------- -->
-    <% if (typeof path === 'string' && path === '/newpost' ) { %>
-    <link rel="stylesheet" href="/css/postEditor.css" />
-    <% } else { %>
-    <link rel="stylesheet" href="/css/dashboard.css" />
-    <% } %>
-    <!-- --------------------------------------- -->
+    <link rel="stylesheet" href="/css/<%= typeof path === 'string' && path ===
+    '/newpost' ? "postEditor" : "dashboard" %>.css">
     <link rel="stylesheet" href="/css/navbar.css" />
     <title><%= pageTitle %></title>
   </head>
   <body>
     <% if (typeof path !== 'string') { %>
-    <!-- --- -->
+    <!-- ---------------------------- -->
     <%- include ('./includes/navbar.ejs') -%>
-    <!-- --- -->
+    <!-- -------------------------------- -->
     <% } %>
     <!-- --- -->
     <%- body -%>
