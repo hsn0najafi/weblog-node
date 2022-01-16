@@ -48,7 +48,7 @@ export const newPost = (_: Request, res: Response) => {
 export const handleNewPost = async (_: Request, res: Response) => {
   try {
     await Blog.create({ ..._.body, user: _.user!.id });
-    res.redirect("/admin/dashboard");
+    res.redirect("/admin/blogs");
   } catch (err) {
     console.log(err);
   }
