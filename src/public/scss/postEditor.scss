@@ -5,7 +5,13 @@
   margin: 20px 10px;
   border-radius: $radius-2;
   padding: 5px;
+
   div {
+    // Just for SpeedUp Coding i Use This
+    // It's not Recommend for Css Selectors
+    *:not(.textarea):hover {
+      box-shadow: 0 0 1px 5px transparentize($color: $blue, $amount: 0.5);
+    }
     * {
       margin: 5px 0;
     }
@@ -16,9 +22,6 @@
       border: none;
       box-shadow: $shadow-2;
     }
-    // *:hover {
-    //   box-shadow: 0 0 1px 5px transparentize($color: $blue, $amount: 0.5);
-    // }
     select {
       padding: 5px;
       border-radius: $radius-2;
