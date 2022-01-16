@@ -63,7 +63,7 @@ export const blogs = async (_: Request, res: Response) => {
 
     res.render("pages/admin/blogs", {
       pageTitle: "Blogs",
-      layout: "dashboard",
+      layout: "layout",
       userFullName: _.user!.fullName,
       blogs,
     });
