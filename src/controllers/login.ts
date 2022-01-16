@@ -75,5 +75,5 @@ export const handleRememberMe = (_: Request, res: Response) => {
 export const handleLogout = (_: Request, res: Response, next: NextFunction) => {
   _.logOut();
   _.flash("successMessage", "خداحافظ حاجی");
-  res.redirect("/users/login");
+  res.redirect("/");
 };
