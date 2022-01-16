@@ -14,12 +14,11 @@ import Debug from "debug";
 import { dataBaseConnection } from "./utils/db";
 import { myStream } from "./config/winston";
 
-// Debug Main NameSpace
 const debug = Debug("weblog");
 
 // DataBase Connection
 dataBaseConnection();
-debug("Connected To Database");
+debug("Database Connection");
 
 /**
  * 'passportJS' Configiration
@@ -31,7 +30,7 @@ const app: Application = express();
 
 // Logger
 process.env.NODE_ENV === "Development"
-  ? app.use(morgan("common")) // ? app.use(morgan("combined", { stream: myStream }))
+  ? app.use(morgan("common", { stream: myStream }))
   : null;
 
 // Set '/public' For Static Files
@@ -83,7 +82,5 @@ app.use(require("./routes/errors"));
 
 const { PORT, HOST, NODE_ENV } = process.env;
 app.listen(PORT, () =>
-  console.log(
-    `Server is Running on -> http://${HOST}:${PORT} and ${NODE_ENV} Mode`
-  )
+  debug(`Server is Running on -> http://${HOST}:${PORT} and ${NODE_ENV} Mode`)
 );
