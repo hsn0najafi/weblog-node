@@ -31,6 +31,7 @@ export const handleLogin = async (
     _.flash("error", "هیییی, اعتبار سنجی رو انجام بده");
     return res.redirect("/users/login");
   }
+
   const secretKey = process.env.CAPTCHA_SECRET;
   const authUrl = `https://google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${_.body["g-recaptcha-response"]}&remoteip=${_.socket.remoteAddress}`;
 
@@ -42,10 +43,11 @@ export const handleLogin = async (
     },
   });
   const json: any = await response.json();
+
   // if (json.success) {
   if (true) {
     passport.authenticate("local", {
-      successRedirect: "/admin/dashboard",
+      // successRedirect: "/admin/dashboard",
       failureRedirect: "/users/login",
       failureFlash: true,
       // failureFlash: "مشکلی پیش آمده - ارور های فایل کانفیق رو نشون نده",
@@ -72,6 +74,6 @@ export const handleRememberMe = (_: Request, res: Response) => {
  */
 export const handleLogout = (_: Request, res: Response, next: NextFunction) => {
   _.logOut();
-  _.flash("successMessage", "با موفقیت اومدی بیرون");
+  _.flash("successMessage", "خداحافظ حاجی");
   res.redirect("/users/login");
 };
