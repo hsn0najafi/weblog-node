@@ -4,11 +4,11 @@ import { User } from "../models/User";
 
 /**
  * @description    Signup/Register Page
- * @pages          pages/users/signup
+ * @pages          pages/signup
  * @layout         loginSignup
  */
 export const signupController = (_: Request, res: Response) => {
-  res.render("pages/users/signup", {
+  res.render("pages/signup", {
     pageTitle: "Signup",
     layout: "loginSignup",
     errors: [],
@@ -17,7 +17,7 @@ export const signupController = (_: Request, res: Response) => {
 
 /**
  * @description    Authenticate Users And Add to DB
- * @pages          pages/users/signup
+ * @pages          pages/signup
  * @layout         loginSignup
  * @module         UserSchema
  */
@@ -38,7 +38,7 @@ export const handleSignup = async (_: Request, res: Response) => {
         name: "email",
         message: "این ایمیل قبلا ثبت شده",
       });
-      return res.render("pages/users/signup", {
+      return res.render("pages/signup", {
         pageTitle: "Signup",
         layout: "loginSignup",
         errors,
@@ -74,7 +74,7 @@ export const handleSignup = async (_: Request, res: Response) => {
     /**
      * ReRender Register Page for Show Errors
      */
-    res.render("pages/users/signup", {
+    res.render("pages/signup", {
       pageTitle: "Signup",
       layout: "loginSignup",
       errors,
