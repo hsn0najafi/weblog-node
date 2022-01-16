@@ -28,11 +28,11 @@ export const dashboardController = (_: Request, res: Response) => {
 
 /**
  * @description    Show New Post
- * @pages          pages/users/addPost
+ * @pages          pages/admin/addPost
  * @layout         dashboard
  */
 export const newPost = (_: Request, res: Response) => {
-  res.render("pages/users/addPost", {
+  res.render("pages/admin/addPost", {
     pageTitle: "NewPost",
     layout: "dashboard",
     userFullName: _.user!.fullName,
