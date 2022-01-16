@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { Types } from "mongoose";
 
 import { Blog } from "../models/Blog";
 
@@ -10,6 +11,7 @@ import { Blog } from "../models/Blog";
 declare global {
   namespace Express {
     interface User {
+      id: Types.ObjectId;
       fullName: string;
       email: string;
       password: string;
@@ -47,6 +49,24 @@ export const handleNewPost = async (_: Request, res: Response) => {
   try {
     await Blog.create({ ..._.body, user: _.body.user });
     res.redirect("/admin/dashboard");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+/**
+ * @description    Show Blogs
+ */
+export const blogs = async (_: Request, res: Response) => {
+  try {
+    const blogs = await Blog.find({ user: _.user!.id });
+
+    res.render("pages/admin/blogs", {
+      pageTitle: "Blogs",
+      layout: "dashboard",
+      userFullName: _.user!.fullName,
+      blogs,
+    });
   } catch (err) {
     console.log(err);
   }
