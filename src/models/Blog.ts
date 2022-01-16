@@ -4,7 +4,7 @@ interface BlogSchema extends Document {
   title: string;
   body: string;
   status?: "عمومی" | "خصوصی";
-  user?: Types.ObjectId;
+  user: Types.ObjectId;
   createDate?: DateConstructor | number;
 }
 
@@ -33,6 +33,7 @@ const blogSchema = new Schema<BlogSchema>({
   user: {
     type: Types.ObjectId,
     ref: "User",
+    required: true,
   },
   createDate: {
     type: Date,
