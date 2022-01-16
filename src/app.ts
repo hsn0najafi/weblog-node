@@ -31,7 +31,7 @@ const app: Application = express();
 
 // Logger
 process.env.NODE_ENV === "Development"
-  ? app.use(morgan("combined", { stream: myStream }))
+  ? app.use(morgan("common")) // ? app.use(morgan("combined", { stream: myStream }))
   : null;
 
 // Set '/public' For Static Files
