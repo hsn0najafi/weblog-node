@@ -47,7 +47,7 @@ export const newPost = (_: Request, res: Response) => {
  */
 export const handleNewPost = async (_: Request, res: Response) => {
   try {
-    await Blog.create({ ..._.body, user: _.user!.id });
+    await Blog.create({ ..._.body, userId: _.user!.id });
     res.redirect("/admin/blogs");
   } catch (err) {
     console.log(err);
@@ -59,7 +59,7 @@ export const handleNewPost = async (_: Request, res: Response) => {
  */
 export const blogs = async (_: Request, res: Response) => {
   try {
-    const blogs = await Blog.find({ user: _.user!.id });
+    const blogs = await Blog.find({ userId: _.user!.id });
 
     res.render("pages/admin/blogs", {
       pageTitle: "Blogs",
