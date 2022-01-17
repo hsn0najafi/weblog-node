@@ -7,9 +7,7 @@
   padding: 5px;
 
   div {
-    // Just for SpeedUp Coding i Use This
-    // It's not Recommend for Css Selectors
-    *:not(#editor *):hover {
+    .hover:hover {
       box-shadow: 0 0 1px 5px transparentize($color: $blue, $amount: 0.5);
     }
     * {
