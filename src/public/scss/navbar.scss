@@ -73,7 +73,7 @@
 
 // SearchBar
 .search {
-  width: 300px;
+  width: calc(100vw - 150px);
   height: 30px;
   outline: none;
   border: none;
@@ -81,6 +81,8 @@
   border-radius: $radius-2;
   padding: 2px;
   text-align: center;
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 // UserProfilePicture
