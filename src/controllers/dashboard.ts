@@ -66,6 +66,7 @@ export const blogs = async (_: Request, res: Response) => {
       layout: "layout",
       userFullName: _.user!.fullName,
       blogs,
+      path: "/blogs",
     });
   } catch (err) {
     console.log(err);
