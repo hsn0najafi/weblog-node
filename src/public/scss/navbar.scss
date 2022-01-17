@@ -6,6 +6,7 @@
   position: sticky;
   top: 1%;
   ul {
+    background-color: #fff;
     @include flexCenter(row, space-between, center);
     box-shadow: $shadow-1;
     border-radius: $radius-2;
