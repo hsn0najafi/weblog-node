@@ -23,5 +23,20 @@
     <!-- --- -->
     <%- body -%>
   </body>
+  <% if ( typeof path === 'string' && path === '/newpost') { %>
+  <script src="/scripts/ckeditor.js"></script>
+  <script>
+    InlineEditor.create(document.querySelector("#editor"), {
+      licenseKey: "",
+      language: "fa",
+    })
+      .then((editor) => {
+        window.editor = editor;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  </script>
+  <% } %>
   <script src="/scripts/main.js"></script>
 </html>
