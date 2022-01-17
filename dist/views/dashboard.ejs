@@ -24,19 +24,13 @@
     <%- body -%>
   </body>
   <% if ( typeof path === 'string' && path === '/newpost') { %>
-  <script src="/scripts/ckeditor.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
   <script>
-    InlineEditor.create(document.querySelector("#editor"), {
-      licenseKey: "",
-      language: "fa",
-    })
-      .then((editor) => {
-        window.editor = editor;
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    ClassicEditor.create(document.querySelector("#editor")).catch((error) => {
+      console.error(error);
+    });
   </script>
+
   <% } %>
   <script src="/scripts/main.js"></script>
 </html>
