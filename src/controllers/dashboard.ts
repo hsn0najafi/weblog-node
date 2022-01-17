@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { Types } from "mongoose";
 
 import { Blog } from "../models/Blog";
+import { dateToJalali } from "../utils/jm";
 
 /**
  * @description    Show Dashbord
@@ -67,6 +68,7 @@ export const blogs = async (_: Request, res: Response) => {
       userFullName: _.user!.fullName,
       blogs,
       path: "/blogs",
+      dateToJalali,
     });
   } catch (err) {
     console.log(err);

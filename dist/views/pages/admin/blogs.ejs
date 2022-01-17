@@ -15,7 +15,7 @@
       <tr>
         <td><%= i + 1 %></td>
         <td><%= blogs[i].title %></td>
-        <td><%= blogs[i].createDate %></td>
+        <td><%= dateToJalali(blogs[i].createDate) %></td>
         <td
           class="<%= blogs[i].status === 'خصوصی' ? 'bg-warn' : 'bg-success' %>"
         >
