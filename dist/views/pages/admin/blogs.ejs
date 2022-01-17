@@ -1,8 +1,27 @@
-<% if (blogs.length < 0) { %>
+<% if (blogs.length > 0) { %>
 <!-- -------------------- -->
-<% blogs.forEach(blog => { %>
-<!-- -------------------- -->
-<% }) %>
+<div class="blogs">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>عنوان پست</th>
+        <th>تاریخ</th>
+        <th>وضعیت</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let i=0; i < blogs.length; i++) { %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= blogs[i].title %></td>
+        <td><%= blogs[i].createDate %></td>
+        <td><%= blogs[i].status %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
 <!-- ----- -->
 <% } else { %>
 <!-- ----- -->
