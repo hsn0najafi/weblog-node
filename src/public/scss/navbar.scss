@@ -129,6 +129,9 @@
         box-shadow: $shadow-1;
         border-radius: $radius-2;
       }
+      li a {
+        font-weight: normal;
+      }
       li:hover {
         background-color: $blue;
         color: white !important;
