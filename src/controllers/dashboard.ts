@@ -48,12 +48,35 @@ export const newPost = (_: Request, res: Response) => {
  * @description    Handle New Post
  */
 export const handleNewPost = async (_: Request, res: Response) => {
+  const errors: any[] = [];
+
   try {
+    await Blog.blogValidation(_.body);
     await Blog.create({ ..._.body, userId: _.user!.id });
     res.redirect("/admin/blogs");
-  } catch (err) {
+  } catch (err: any) {
     console.log(err);
-    get500(_, res);
+    /**
+     * Push Errors to a Array and then Show it's
+     * Errors Controller
+     */
+    if (err.inner !== undefined) {
+      err.inner.map((e: any) => {
+        errors.push({
+          name: e.path,
+          message: e.message,
+        });
+      });
+    }
+    /**
+     * ReRender AddPost Page for Show Errors
+     */
+    res.render("pages/admin/addPost", {
+      pageTitle: "NewPost",
+      layout: "dashboard",
+      path: "/newpost",
+      errors,
+    });
   }
 };
 
