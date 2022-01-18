@@ -121,7 +121,6 @@ export const handleRecieveImage = (_: Request, res: Response) => {
       res.send(err);
     } else {
       if (_.file) {
-        console.log(_.file);
         const fileName = `${uuidv4()}_${_.file.originalname}`;
 
         await sharp(_.file.buffer)
