@@ -3,6 +3,7 @@ import { Types } from "mongoose";
 
 import { Blog } from "../models/Blog";
 import { dateToJalali } from "../utils/jm";
+import { get500 } from "./errorController";
 
 /**
  * @description    Show Dashbord
@@ -52,6 +53,7 @@ export const handleNewPost = async (_: Request, res: Response) => {
     res.redirect("/admin/blogs");
   } catch (err) {
     console.log(err);
+    get500(_, res);
   }
 };
 
@@ -72,5 +74,6 @@ export const blogs = async (_: Request, res: Response) => {
     });
   } catch (err) {
     console.log(err);
+    get500(_, res);
   }
 };
