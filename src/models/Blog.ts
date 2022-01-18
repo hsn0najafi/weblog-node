@@ -1,5 +1,7 @@
 import { Schema, Model, model, Types, Document } from "mongoose";
 
+import { schema } from "./secure/blogAuth";
+
 interface BlogSchema extends Document {
   title: string;
   body: string;
@@ -8,7 +10,9 @@ interface BlogSchema extends Document {
   createDate?: DateConstructor | number;
 }
 
-interface BlogModel extends Model<BlogSchema> {}
+interface BlogModel extends Model<BlogSchema> {
+  blogValidation(body: any): Boolean;
+}
 
 /**
  * DB Schema
@@ -19,10 +23,11 @@ const blogSchema = new Schema<BlogSchema>({
     required: true,
     trim: true,
     minlength: 4,
-    maxlength: 255,
+    maxlength: 40,
   },
   body: {
     type: String,
+    minlength: 4,
     required: true,
   },
   status: {
@@ -41,4 +46,13 @@ const blogSchema = new Schema<BlogSchema>({
   },
 });
 
+// blogSchema.static("blogValidation", function (body) {
+//   return schema.validate(body, { abortEarly: false });
+// });
+
+blogSchema.statics.blogValidation = function (body) {
+  return schema.validate(body, { abortEarly: false });
+};
+
 export const Blog = model<BlogSchema, BlogModel>("Blog", blogSchema);
+ 
