@@ -58,6 +58,7 @@ app.use(
     secret: process.env.SECRET!,
     resave: false,
     saveUninitialized: false,
+    unset: "destroy",
     /**
      * Persistent Session - Save to MongoDB
      */

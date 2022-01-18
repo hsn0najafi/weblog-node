@@ -72,8 +72,8 @@ export const handleRememberMe = (_: Request, res: Response) => {
 /**
  * @description    Logout
  */
-export const handleLogout = (_: Request, res: Response, next: NextFunction) => {
+export const handleLogout = (_: Request, res: Response) => {
+  _.session.destroy((err) => (err !== undefined ? console.log(err) : null));
   _.logOut();
-  _.flash("successMessage", "خداحافظ حاجی");
   res.redirect("/");
 };
