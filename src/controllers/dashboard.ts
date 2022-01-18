@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
 import { Types } from "mongoose";
+import multer from "multer";
 
 import { Blog } from "../models/Blog";
 import { dateToJalali } from "../utils/jm";
 import { get500 } from "./errorController";
+import { storage, fileFilter } from "../utils/multer";
 
 /**
  * @description    Show Dashbord
@@ -96,7 +98,31 @@ export const blogs = async (_: Request, res: Response) => {
       dateToJalali,
     });
   } catch (err) {
-    console.log(err);
+    if (err) console.log(err);
     get500(_, res);
   }
+};
+
+/**
+ * @description    handle Recieve Image
+ */
+export const handleRecieveImage = (_: Request, res: Response) => {
+  const upload = multer({
+    limits: { fileSize: 5000000 },
+    dest: "uploads/images/",
+    storage,
+    fileFilter,
+  }).single("image");
+
+  upload(_, res, (err) => {
+    if (err) {
+      res.send(err);
+    } else {
+      if (_.file) {
+        res.status(200).send("آپلود عکس موفقیت آمیز بود");
+      } else {
+        res.send("جهت آپلود باید عکسی انتخاب کنید");
+      }
+    }
+  });
 };
