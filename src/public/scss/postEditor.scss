@@ -100,3 +100,56 @@
     margin: 0 10px;
   }
 }
+
+.row {
+  height: 50px;
+  @include flexCenter(row, space-between, center);
+}
+
+.upload-image-container {
+  width: 85%;
+  @include flexCenter(row, space-between, center);
+  * {
+    border-radius: $radius-2;
+    height: 100%;
+    border: none;
+  }
+  button {
+    margin-right: 10px !important;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: $shadow-2;
+  }
+  input {
+    display: none;
+  }
+  label {
+    padding: 3px;
+    cursor: pointer;
+    box-shadow: $shadow-2;
+    margin-right: auto !important;
+  }
+}
+
+.fa-telegram-plane::before {
+  background-color: #fff !important;
+}
+
+.progressBar {
+  color: white;
+  height: 30px;
+  background-color: $blue;
+  @include flexCenter(column, center, center);
+  &-container {
+    margin-right: 10px !important;
+    padding: 0 5px;
+    width: 70%;
+    height: 40px;
+    box-shadow: $shadow-2;
+  }
+}
+
+#imageStatus {
+  font-size: 15px;
+  text-shadow: 0px 0px 5px #000;
+}
