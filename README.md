@@ -1,6 +1,6 @@
 # weblog
 
-## Weblog - Express.js
+### Weblog - Express.js
 
 ```
 vi ./.env
@@ -26,7 +26,7 @@ npm start
 npm run dev
 ```
 
-## ScreenShots
+### ScreenShots
 
 <table>
   <tr>
