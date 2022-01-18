@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { Types } from "mongoose";
 import multer from "multer";
+import sharp from "sharp";
+import { v4 as uuidv4 } from "uuid";
 
 import { Blog } from "../models/Blog";
 import { dateToJalali } from "../utils/jm";
@@ -109,16 +111,27 @@ export const blogs = async (_: Request, res: Response) => {
 export const handleRecieveImage = (_: Request, res: Response) => {
   const upload = multer({
     limits: { fileSize: 5000000 },
-    dest: "uploads/images/",
-    storage,
+    // dest: "uploads/images/",
+    // storage,
     fileFilter,
   }).single("image");
 
-  upload(_, res, (err) => {
+  upload(_, res, async (err) => {
     if (err) {
       res.send(err);
     } else {
       if (_.file) {
+        console.log(_.file);
+        const fileName = `${uuidv4()}_${_.file.originalname}`;
+
+        await sharp(_.file.buffer)
+          // .resize(800, 800)
+          .jpeg({
+            quality: 60,
+          })
+          .toFile(`./dist/public/uploads/images/${fileName}`)
+          .catch((err) => console.log(err));
+
         res.status(200).send("آپلود عکس موفقیت آمیز بود");
       } else {
         res.send("جهت آپلود باید عکسی انتخاب کنید");
