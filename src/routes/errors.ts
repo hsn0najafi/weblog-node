@@ -1,18 +1,14 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
 
 const router = Router();
+
+import { get404 } from "../controllers/errorController";
 
 /**
  * @description    Show 404
  * @method         GET
  * @host           /*
  */
-router.use((_: Request, res: Response) => {
-  res.render("pages/errors/404", {
-    pageTitle: "pageNotFound",
-    message: "Page Not Found",
-    layout: "layout",
-  });
-});
+router.use(get404);
 
 module.exports = router;
