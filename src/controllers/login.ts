@@ -26,8 +26,7 @@ export const handleLogin = async (
   res: Response,
   next: NextFunction
 ) => {
-  // if (!_.body["g-recaptcha-response"]) {
-  if (false) {
+  if (!_.body["g-recaptcha-response"]) {
     _.flash("error", "هیییی, اعتبار سنجی رو انجام بده");
     return res.redirect("/users/login");
   }
@@ -44,8 +43,7 @@ export const handleLogin = async (
   });
   const json: any = await response.json();
 
-  // if (json.success) {
-  if (true) {
+  if (json.success) {
     passport.authenticate("local", {
       // successRedirect: "/admin/dashboard",
       failureRedirect: "/users/login",
