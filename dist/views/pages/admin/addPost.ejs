@@ -8,11 +8,25 @@
         class="post-title hover"
       />
     </div>
-    <div>
+    <div class="row">
       <select name="status" class="hover">
         <option value="عمومی" selected>عمومی</option>
         <option value="خصوصی">خصوصی</option>
       </select>
+      <div class="upload-image-container">
+        <input type="file" id="selectedImage" />
+        <label for="selectedImage" class="hover"
+          ><span class="fas fa-image"></span
+        ></label>
+        <button type="button" id="imageUpload" class="hover">
+          <span class="fa fa-upload fa-1x"></span>
+        </button>
+        <div class="progressBar-container" id="progressDiv">
+          <div class="progressBar" id="progressBar">
+            <p id="imageStatus"></p>
+          </div>
+        </div>
+      </div>
     </div>
     <div>
       <textarea class="textarea hover" name="body" id="editor"></textarea>
