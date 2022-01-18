@@ -86,3 +86,17 @@
 .ck-editor__editable:hover {
   box-shadow: 0 0 1px 2px transparentize($color: $blue, $amount: 0.5);
 }
+
+.errorMessage {
+  @include flexCenter(row, center, center);
+  margin: 10px auto;
+  box-shadow: $shadow-2;
+  border-radius: $radius-2;
+  width: calc(100vw - 40px);
+  height: 30px;
+  background-color: $orange;
+  color: $white;
+  div {
+    margin: 0 10px;
+  }
+}
