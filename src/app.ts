@@ -55,7 +55,7 @@ app.use(bodyParser.json());
 // Sessions
 app.use(
   expressSession({
-    secret: "secret",
+    secret: process.env.SECRET!,
     resave: false,
     saveUninitialized: false,
     /**
