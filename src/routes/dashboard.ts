@@ -5,6 +5,7 @@ import {
   newPost,
   handleNewPost,
   blogs,
+  handleRecieveImage,
 } from "../controllers/dashboard";
 import { auth } from "../middlewares/auth";
 
@@ -37,5 +38,12 @@ router.post("/add-post", auth, handleNewPost);
  * @host           /admin/blogs
  */
 router.get("/blogs", auth, blogs);
+
+/**
+ * @description    Recieve Upload
+ * @method         POST
+ * @host           /admin/upload-image
+ */
+router.post("/upload-image", auth, handleRecieveImage);
 
 module.exports = router;
