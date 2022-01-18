@@ -78,3 +78,11 @@
   margin-top: 0 !important;
   padding: 0 !important;
 }
+
+.ck-editor__editable {
+  height: 400px !important;
+}
+
+.ck-editor__editable:hover {
+  box-shadow: 0 0 1px 2px transparentize($color: $blue, $amount: 0.5);
+}

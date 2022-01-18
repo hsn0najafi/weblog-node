@@ -26,11 +26,12 @@
   <% if ( typeof path === 'string' && path === '/newpost') { %>
   <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
   <script>
-    ClassicEditor.create(document.querySelector("#editor")).catch((error) => {
+    ClassicEditor.create(document.querySelector("#editor"), {
+      language: "fa",
+    }).catch((error) => {
       console.error(error);
     });
   </script>
-
   <% } %>
   <script src="/scripts/main.js"></script>
 </html>
