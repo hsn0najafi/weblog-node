@@ -90,7 +90,7 @@ export const handleNewPost = async (_: Request, res: Response) => {
  * @description    Show Edit Post
  */
 export const editPost = async (_: Request, res: Response) => {
-  const post = await Blog.findOne({ id: _.params.id });
+  const post = await Blog.findOne({ _id: _.params.id });
 
   if (!post || post.userId != _.user!.id) {
     return res.redirect("/admin/blogs");
@@ -100,6 +100,58 @@ export const editPost = async (_: Request, res: Response) => {
       layout: "dashboard",
       path: "/newpost",
       editMode: true,
+      post,
+    });
+  }
+};
+
+/**
+ * @description    Handle Edit Post
+ */
+export const handleEditPost = async (_: Request, res: Response) => {
+  const errors: any[] = [];
+
+  const post = await Blog.findOne({ _id: _.params.id });
+
+  try {
+    await Blog.blogValidation(_.body);
+
+    if (post!.userId.toString() !== _.user!.id.toString()) {
+      return res.redirect("/admin/edit-post");
+    } else {
+      // const { title, status, body } = _.body;
+
+      //--Data--------NewData--
+      post!.title = _.body.title;
+      post!.status = _.body.status;
+      post!.body = _.body.body;
+
+      await post!.save();
+      return res.redirect("/admin/blogs");
+    }
+  } catch (err: any) {
+    console.log(err);
+    /**
+     * Push Errors to a Array and then Show it's
+     * Errors Controller
+     */
+    if (err.inner !== undefined) {
+      err.inner.map((e: any) => {
+        errors.push({
+          name: e.path,
+          message: e.message,
+        });
+      });
+    }
+    /**
+     * ReRender EditPost Page for Show Errors
+     */
+    res.render(`pages/admin/addPost${post!.id}`, {
+      pageTitle: "ویرایش پست",
+      layout: "dashboard",
+      path: "/newpost",
+      editMode: true,
+      errors,
       post,
     });
   }
