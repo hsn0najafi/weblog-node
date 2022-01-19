@@ -45,6 +45,7 @@ export const newPost = (_: Request, res: Response) => {
     layout: "dashboard",
     userFullName: _.user!.fullName,
     path: "/newpost",
+    editMode: false,
   });
 };
 
@@ -80,6 +81,26 @@ export const handleNewPost = async (_: Request, res: Response) => {
       layout: "dashboard",
       path: "/newpost",
       errors,
+      editMode: false,
+    });
+  }
+};
+
+/**
+ * @description    Show Edit Post
+ */
+export const editPost = async (_: Request, res: Response) => {
+  const post = await Blog.findOne({ _id: _.params.id });
+
+  if (!post || post.userId != _.user!.id) {
+    return res.redirect("/admin/blogs");
+  } else {
+    res.render("pages/admin/addPost", {
+      pageTitle: "ویرایش پشت",
+      layout: "dashboard",
+      path: "/newpost",
+      editMode: true,
+      post,
     });
   }
 };
