@@ -7,6 +7,7 @@ import {
   editPost,
   blogs,
   handleRecieveImage,
+  handleDeletePost,
   handleEditPost,
 } from "../controllers/dashboard";
 import { auth } from "../middlewares/auth";
@@ -47,6 +48,13 @@ router.get("/edit-post/:id", auth, editPost);
  * @host           /admin/edit-post
  */
 router.post("/edit-post/:id", auth, handleEditPost);
+
+/**
+ * @description    Handle Delete Post
+ * @method         GET
+ * @host           /admin/delete-post
+ */
+router.post("/delete-post/:id", auth, handleDeletePost);
 
 /**
  * @description    show Posts
