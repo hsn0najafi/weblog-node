@@ -11,8 +11,8 @@
     </div>
     <div class="row">
       <select name="status" class="hover">
-        <option value="عمومی" selected>عمومی</option>
-        <option value="خصوصی">خصوصی</option>
+        <option value="عمومی" <%= editMode && post.status === 'عمومی' ? 'selected' : null %>>عمومی</option>
+        <option value="خصوصی" <%= editMode && post.status === 'خصوصی' ? 'selected' : null %>>خصوصی</option>
       </select>
       <div class="upload-image-container">
         <input type="file" id="selectedImage" />
