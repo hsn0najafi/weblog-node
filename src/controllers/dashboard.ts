@@ -90,7 +90,7 @@ export const handleNewPost = async (_: Request, res: Response) => {
  * @description    Show Edit Post
  */
 export const editPost = async (_: Request, res: Response) => {
-  const post = await Blog.findOne({ _id: _.params.id });
+  const post = await Blog.findOne({ id: _.params.id });
 
   if (!post || post.userId != _.user!.id) {
     return res.redirect("/admin/blogs");
