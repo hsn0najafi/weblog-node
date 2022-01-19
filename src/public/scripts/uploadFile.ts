@@ -7,8 +7,9 @@ document.getElementById("imageUpload")!.onclick = function () {
   const progressBar = document.getElementById("progressBar")!;
 
   xhttp.onreadystatechange = function () {
-    imageStatus.innerHTML = this.responseText;
+    copyToClipboard(this.responseText);
   };
+
   xhttp.open("POST", "/admin/upload-image");
 
   xhttp.upload.onprogress = function (e) {
@@ -36,3 +37,15 @@ document.getElementById("imageUpload")!.onclick = function () {
     imageStatus.innerHTML = "برای آپلود باید عکسی انتخاب کنید";
   }
 };
+
+function copyToClipboard(str: string) {
+  const el = document.createElement("textarea");
+  el.value = str;
+  el.setAttribute("readonly", "");
+  el.style.position = "absolute";
+  el.style.left = "-9999px";
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand("copy");
+  document.body.removeChild(el);
+}
