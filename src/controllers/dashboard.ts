@@ -162,10 +162,14 @@ export const handleEditPost = async (_: Request, res: Response) => {
  */
 export const handleDeletePost = async (_: Request, res: Response) => {
   try {
-    const result = await Blog.findByIdAndRemove(_.params.id);
-    // result === Deleted Blog
+    const post = await Blog.findOne({ _id: _.params.id });
 
-    res.redirect("/admin/blogs");
+    if (post!.userId.toString() !== _.user!.id.toString()) {
+      return res.redirect("/admin/blogs");
+    } else {
+      await Blog.findByIdAndRemove(_.params.id);
+      res.redirect("/admin/blogs");
+    }
   } catch (err) {
     if (err) console.log(err);
     get500(_, res);
