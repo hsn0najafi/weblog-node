@@ -19,7 +19,7 @@ document.getElementById("imageUpload")!.onclick = function () {
         progressBar.innerHTML = result + "%";
         progressBar.style.width = result + "%";
       } else {
-        progressBar.style.display = "none";
+        progressBar.style.width = "100%";
         progressBar.innerHTML = "تمام شد";
         progressBar.style.display = "flex";
         progressDiv.style.backgroundColor = "green";
