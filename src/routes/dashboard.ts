@@ -38,7 +38,7 @@ router.post("/add-post", auth, handleNewPost);
  * @method         GET
  * @host           /admin/edit-post
  */
-router.post("/add-post/:id", auth, editPost);
+router.get("/edit-post/:id", auth, editPost);
 
 /**
  * @description    show Posts
