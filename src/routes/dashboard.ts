@@ -7,6 +7,7 @@ import {
   editPost,
   blogs,
   handleRecieveImage,
+  handleEditPost,
 } from "../controllers/dashboard";
 import { auth } from "../middlewares/auth";
 
@@ -39,6 +40,13 @@ router.post("/add-post", auth, handleNewPost);
  * @host           /admin/edit-post
  */
 router.get("/edit-post/:id", auth, editPost);
+
+/**
+ * @description    Handle Edit Post
+ * @method         POST
+ * @host           /admin/edit-post
+ */
+router.post("/edit-post/:id", auth, handleEditPost);
 
 /**
  * @description    show Posts
