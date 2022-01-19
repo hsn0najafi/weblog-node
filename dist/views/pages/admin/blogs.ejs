@@ -7,6 +7,7 @@
           <th>شمار</th>
           <th>عنوان پست</th>
           <th>تاریخ</th>
+          <th>حذف</th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,8 @@
             <td class="blog-title"><a href="/admin/edit-post/<%= blogs[i].id %>"><%= blogs[i].title %></a></td>
             <!-- ------------------------------------------------------------------------------------------ -->
             <td><%= dateToJalali(blogs[i].createDate) %></td>
+            <!-- ------------------------------------------------------------------------------------- -->
+            <td><a href="/admin/delete-post/<%= blogs[i].id %>"><span class="fa fa-trash"></span></a></td>
           </tr>
         <% } %>
       </tbody>
