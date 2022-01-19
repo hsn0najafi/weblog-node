@@ -7,7 +7,7 @@ vi ./.env
 ```
 
 ```
-npm i
+yarn
 ```
 
 ```
