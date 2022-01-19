@@ -96,7 +96,7 @@ export const editPost = async (_: Request, res: Response) => {
     return res.redirect("/admin/blogs");
   } else {
     res.render("pages/admin/addPost", {
-      pageTitle: "ویرایش پشت",
+      pageTitle: "ویرایش پست",
       layout: "dashboard",
       path: "/newpost",
       editMode: true,
