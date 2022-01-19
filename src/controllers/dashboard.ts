@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Blog } from "../models/Blog";
 import { dateToJalali } from "../utils/jm";
 import { get500 } from "./errorController";
-import { storage, fileFilter } from "../utils/multer";
+import { fileFilter } from "../utils/multer";
 
 /**
  * @description    Show Dashbord
@@ -111,8 +111,6 @@ export const blogs = async (_: Request, res: Response) => {
 export const handleRecieveImage = (_: Request, res: Response) => {
   const upload = multer({
     limits: { fileSize: 1000000 },
-    // dest: "uploads/images/",
-    // storage,
     fileFilter,
   }).single("image");
 
