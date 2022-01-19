@@ -118,6 +118,9 @@ export const handleRecieveImage = (_: Request, res: Response) => {
 
   upload(_, res, async (err) => {
     if (err) {
+      if (err.code === "LIMIT_FILE_SIZE") {
+        return res.status(400).send("حجم عکس نباید بیشتر از ۵ مگ باشد");
+      }
       res.send(err);
     } else {
       if (_.file) {
