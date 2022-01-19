@@ -54,7 +54,7 @@ router.post("/edit-post/:id", auth, handleEditPost);
  * @method         GET
  * @host           /admin/delete-post
  */
-router.post("/delete-post/:id", auth, handleDeletePost);
+router.get("/delete-post/:id", auth, handleDeletePost);
 
 /**
  * @description    show Posts
