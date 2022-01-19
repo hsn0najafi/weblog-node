@@ -1,38 +1,34 @@
 <% if (blogs.length > 0) { %>
 <!-- -------------------- -->
-<div class="blogs">
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>عنوان پست</th>
-        <th>تاریخ</th>
-        <th>وضعیت</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% for(let i=0; i < blogs.length; i++) { %>
-      <tr>
-        <td><%= i + 1 %></td>
-        <td><%= blogs[i].title %></td>
-        <td><%= dateToJalali(blogs[i].createDate) %></td>
-        <td
-          class="<%= blogs[i].status === 'خصوصی' ? 'bg-warn' : 'bg-success' %>"
-        >
-          <%= blogs[i].status %>
-        </td>
-      </tr>
-      <% } %>
-    </tbody>
-  </table>
-</div>
+  <div class="blogs">
+    <table>
+      <thead>
+        <tr>
+          <th>شمار</th>
+          <th>عنوان پست</th>
+          <th>تاریخ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i=0; i < blogs.length; i++) { %>
+          <tr>
+            <td class="<%= blogs[i].status === 'خصوصی' ? 'bg-warn' : 'bg-success' %>"><%= i + 1 %></td>
+            <!-- ------------------------------------------------------------------------------------ -->
+            <td class="blog-title"><a href="/admin/edit-post/<%= blogs[i].id %>"><%= blogs[i].title %></a></td>
+            <!-- ------------------------------------------------------------------------------------------ -->
+            <td><%= dateToJalali(blogs[i].createDate) %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
 <!-- ----- -->
 <% } else { %>
 <!-- ----- -->
-<div class="no-blog-msg">
-  <p>شما هیچ پستی ندارید</p>
-  <hr />
-  <a href="/admin/add-post">افزودن پست</a>
-</div>
+  <div class="no-blog-msg">
+    <p>شما هیچ پستی ندارید</p>
+    <hr />
+    <a href="/admin/add-post">افزودن پست</a>
+  </div>
 <!---->
 <% } %>
