@@ -7,7 +7,7 @@ interface UserSchema {
   fullName: string;
   email: string;
   password: string;
-  createDate: DateConstructor | number;
+  createDate?: DateConstructor | number;
 }
 
 interface UserModel extends Model<UserSchema> {
@@ -36,7 +36,7 @@ const userSchema = new Schema<UserSchema, UserModel>({
   },
   createDate: {
     type: Date,
-    default: Date.now(),
+    default: Date(),
   },
 });
 

@@ -42,7 +42,7 @@ const blogSchema = new Schema<BlogSchema>({
   },
   createDate: {
     type: Date,
-    default: Date.now(),
+    default: Date(),
   },
 });
 
@@ -55,4 +55,3 @@ blogSchema.statics.blogValidation = function (body) {
 };
 
 export const Blog = model<BlogSchema, BlogModel>("Blog", blogSchema);
- 
