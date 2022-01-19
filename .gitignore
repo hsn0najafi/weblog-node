@@ -13,3 +13,6 @@ dist/public/css/*.css
 # Ignore Winston Log Files
 dist/logs
 
+dist/public/uploads/images
+!dist/public/uploads/images/c7a51ca7-0863-47cd-833a-1a3e0f64adc8_alex-knight-Ys-DBJeX0nE-unsplash.jpg
+
