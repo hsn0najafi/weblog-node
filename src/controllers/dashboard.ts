@@ -131,7 +131,9 @@ export const handleRecieveImage = (_: Request, res: Response) => {
           .toFile(`./dist/public/uploads/images/${fileName}`)
           .catch((err) => console.log(err));
 
-        res.status(200).send("آپلود عکس موفقیت آمیز بود");
+        res
+          .status(200)
+          .send(`http://192.168.43.3:3000/uploads/images/${fileName}`);
       } else {
         res.send("جهت آپلود باید عکسی انتخاب کنید");
       }
