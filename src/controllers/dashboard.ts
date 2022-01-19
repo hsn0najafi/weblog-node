@@ -110,7 +110,7 @@ export const blogs = async (_: Request, res: Response) => {
  */
 export const handleRecieveImage = (_: Request, res: Response) => {
   const upload = multer({
-    limits: { fileSize: 5000000 },
+    limits: { fileSize: 1000000 },
     // dest: "uploads/images/",
     // storage,
     fileFilter,
