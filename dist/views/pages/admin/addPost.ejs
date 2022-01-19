@@ -1,5 +1,5 @@
 <main class="main">
-  <form action="/admin/add-post" method="POST">
+  <form action="<%= editMode ? '/admin/edit-post/' + post.id : '/admin/add-post' %>" method="POST">
     <div>
       <input
         type="text"
@@ -28,12 +28,10 @@
       </div>
     </div>
     <div>
-      <textarea class="textarea hover" name="body" id="editor">
-        <%= editMode ? post.body : null %> 
-      </textarea>
+      <textarea class="textarea hover" name="body" id="editor"><%= editMode ? post.body : null %></textarea>
     </div>
     <div class="btns">
-      <input type="submit" class="btn-success" value="<%= editMode ? 'ثبت تغییرات' : 'ساخت پست' %> " />
+      <input type="submit" class="btn-success" value="<%= editMode ? 'ثبت تغییرات' : 'ساخت پست' %>" />
       <a href="/admin/dashboard" class="btn btn-warning m-2 hover">انصراف</a>
     </div>
   </form>
