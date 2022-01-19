@@ -4,6 +4,7 @@ import {
   dashboardController,
   newPost,
   handleNewPost,
+  editPost,
   blogs,
   handleRecieveImage,
 } from "../controllers/dashboard";
@@ -33,7 +34,14 @@ router.get("/add-post", auth, newPost);
 router.post("/add-post", auth, handleNewPost);
 
 /**
- * @description    Handle New Post
+ * @description    Show Edit Post
+ * @method         GET
+ * @host           /admin/edit-post
+ */
+router.post("/add-post/:id", auth, editPost);
+
+/**
+ * @description    show Posts
  * @method         POST
  * @host           /admin/blogs
  */
