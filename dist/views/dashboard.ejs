@@ -9,9 +9,13 @@
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/animate.min.css" />
     <link rel="stylesheet" href="/css/all.min.css" />
-    <link rel="stylesheet" href="/css/<%= typeof path === 'string' && path ===
-    '/newpost' ? "postEditor" : "dashboard" %>.css">
-    <link rel="stylesheet" href="/css/navbar.css" />
+
+    <% if (typeof path === 'string' && path === '/newpost') { %>
+      <link rel="stylesheet" href="/css/<%= typeof path === 'string' && path === '/newpost' ? "postEditor" : "dashboard" %>.css">
+    <% } else { %>
+      <link rel="stylesheet" href="/css/navbar.css" />
+    <% } %>
+
     <title><%= pageTitle %></title>
   </head>
   <body>
