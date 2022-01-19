@@ -158,6 +158,21 @@ export const handleEditPost = async (_: Request, res: Response) => {
 };
 
 /**
+ * @description    Handle Delete Post
+ */
+export const handleDeletePost = async (_: Request, res: Response) => {
+  try {
+    const result = await Blog.findByIdAndRemove(_.params.id);
+    // result === Deleted Blog
+
+    res.redirect("/admin/blogs");
+  } catch (err) {
+    if (err) console.log(err);
+    get500(_, res);
+  }
+};
+
+/**
  * @description    Show Blogs
  */
 export const blogs = async (_: Request, res: Response) => {
