@@ -31,6 +31,9 @@ const blogSchema = new Schema<BlogSchema>({
     required: true,
   },
   status: {
+    /**
+     * This is Very Bad Code - It should not be Write Persian or RTL inside the code
+     */
     type: String,
     default: "عمومی",
     enum: ["عمومی", "خصوصی"],
