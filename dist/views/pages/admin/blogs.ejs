@@ -13,7 +13,7 @@
       <tbody>
         <% for(let i=0; i < blogs.length; i++) { %>
           <tr>
-            <td class="<%= blogs[i].status === 'خصوصی' ? 'bg-warn' : 'bg-success' %>"><a href="/admin/toggle-status/<%= blogs[i].id %> "><%= i + 1 %></a></td>
+            <td class="<%= blogs[i].status === 'خصوصی' ? 'bg-warn' : 'bg-success' %>"><a href="/admin/toggle-status/<%= blogs[i].id %>"><%= i + 1 %></a></td>
             <!-- ------------------------------------------------------------------------------------ -->
             <td class="blog-title"><a href="/admin/edit-post/<%= blogs[i].id %>"><%= blogs[i].title %></a></td>
             <!-- ------------------------------------------------------------------------------------------ -->
