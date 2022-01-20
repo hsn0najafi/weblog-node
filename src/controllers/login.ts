@@ -64,7 +64,7 @@ export const handleRememberMe = (_: Request, res: Response) => {
     _.session.cookie.originalMaxAge = 24 * 60 * 60 * 1000; // 1 Day
   }
 
-  res.redirect("/admin/dashboard");
+  res.redirect("/");
 };
 
 /**
