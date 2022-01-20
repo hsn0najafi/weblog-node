@@ -1,14 +1,14 @@
 <% posts.forEach(post => { %>
-<div class="post">
-  <img
-    src="/uploads/images/c7a51ca7-0863-47cd-833a-1a3e0f64adc8_alex-knight-Ys-DBJeX0nE-unsplash.jpg"
-    alt="Post Image"
-  />
-  <div class="post-title-date">
-    <p><%= post.title %></p>
-    <p><%= dateToJalali(post.createDate) %></p>
+<a href="/admin/blog/<%= post.id %> ">
+  <div class="post">
+    <img
+      src="/uploads/images/c7a51ca7-0863-47cd-833a-1a3e0f64adc8_alex-knight-Ys-DBJeX0nE-unsplash.jpg"
+      alt="Post Image"
+    />
+    <div class="post-title-date">
+      <p><%= post.title %></p>
+      <p><%= dateToJalali(post.createDate) %></p>
+    </div>
   </div>
-  <!-- --------------------------- -->
-  <div class="post-body"><%- post.body %></div>
-</div>
+</a>
 <% }) %>
