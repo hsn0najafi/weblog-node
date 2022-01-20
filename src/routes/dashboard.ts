@@ -10,6 +10,7 @@ import {
   handleDeletePost,
   handleTogglePostStatus,
   handleEditPost,
+  handleShowPost,
 } from "../controllers/dashboard";
 import { auth } from "../middlewares/auth";
 
@@ -70,6 +71,13 @@ router.get("/toggle-status/:id", auth, handleTogglePostStatus);
  * @host           /admin/blogs
  */
 router.get("/blogs", auth, blogs);
+
+/**
+ * @description    Show Post
+ * @method         GET
+ * @host           /admin/blog
+ */
+router.get("/blog/:id", handleShowPost);
 
 /**
  * @description    Recieve Upload
