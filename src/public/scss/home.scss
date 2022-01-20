@@ -22,4 +22,7 @@
     color: white;
     @include flexCenter(row, space-around, center);
   }
+  &-body {
+    display: none;
+  }
 }
