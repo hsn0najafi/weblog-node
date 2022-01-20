@@ -177,6 +177,31 @@ export const handleDeletePost = async (_: Request, res: Response) => {
 };
 
 /**
+ * @description    Handle Toggle Post Status
+ */
+export const handleTogglePostStatus = async (_: Request, res: Response) => {
+  try {
+    const post = await Blog.findOne({ _id: _.params.id });
+
+    if (post!.userId.toString() !== _.user!.id.toString()) {
+      return res.redirect("/admin/blogs");
+    }
+
+    if (post!.status === "خصوصی") {
+      post!.status = "عمومی";
+    } else {
+      post!.status = "خصوصی";
+    }
+
+    await post!.save();
+    res.redirect("/admin/blogs");
+  } catch (err) {
+    if (err) console.log(err);
+    get500(_, res);
+  }
+};
+
+/**
  * @description    Show Blogs
  */
 export const blogs = async (_: Request, res: Response) => {
