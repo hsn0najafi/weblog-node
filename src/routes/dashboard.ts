@@ -8,6 +8,7 @@ import {
   blogs,
   handleRecieveImage,
   handleDeletePost,
+  handleTogglePostStatus,
   handleEditPost,
 } from "../controllers/dashboard";
 import { auth } from "../middlewares/auth";
@@ -55,6 +56,13 @@ router.post("/edit-post/:id", auth, handleEditPost);
  * @host           /admin/delete-post
  */
 router.get("/delete-post/:id", auth, handleDeletePost);
+
+/**
+ * @description    Handle Toggle Post Status
+ * @method         GET
+ * @host           /admin/toggle-status
+ */
+router.get("/toggle-status/:id", auth, handleTogglePostStatus);
 
 /**
  * @description    show Posts
