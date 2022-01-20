@@ -8,11 +8,13 @@
   overflow: hidden;
   padding: 3px;
   margin: 15px auto;
+  cursor: pointer;
+
   @include flexCenter(column, center, center);
   img {
     width: 100%;
     height: auto;
-    margin: 5px auto;
+    margin-bottom: 5px;
     border-radius: $radius-2;
   }
   &-title-date {
