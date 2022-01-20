@@ -223,6 +223,27 @@ export const blogs = async (_: Request, res: Response) => {
 };
 
 /**
+ * @description    Show Blogs
+ */
+export const handleShowPost = async (_: Request, res: Response) => {
+  try {
+    const blog: any = await Blog.findOne({ id: _.params.id });
+
+    res.render("pages/admin/blog", {
+      pageTitle: blog.title,
+      layout: "layout",
+      userFullName: _.user!.fullName,
+      dateToJalali,
+      path: "/blog",
+      blog,
+    });
+  } catch (err) {
+    if (err) console.log(err);
+    get500(_, res);
+  }
+};
+
+/**
  * @description    handle Recieve Image
  */
 export const handleRecieveImage = (_: Request, res: Response) => {
