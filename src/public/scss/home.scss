@@ -1,0 +1,25 @@
+@import "includes/variables";
+@import "includes/mixins";
+
+.post {
+  box-shadow: $shadow-1;
+  border-radius: $radius-2;
+  width: calc(100% - 20px);
+  overflow: hidden;
+  padding: 3px;
+  margin: 15px auto;
+  @include flexCenter(column, center, center);
+  img {
+    width: 100%;
+    height: auto;
+    margin: 5px auto;
+    border-radius: $radius-2;
+  }
+  &-title-date {
+    width: 100%;
+    border-radius: $radius-2;
+    background-color: $blue;
+    color: white;
+    @include flexCenter(row, space-around, center);
+  }
+}
