@@ -223,7 +223,7 @@ export const blogs = async (_: Request, res: Response) => {
 };
 
 /**
- * @description    Show Blogs
+ * @description    Show Blog
  */
 export const handleShowPost = async (_: Request, res: Response) => {
   try {
@@ -232,7 +232,6 @@ export const handleShowPost = async (_: Request, res: Response) => {
     res.render("pages/admin/blog", {
       pageTitle: blog.title,
       layout: "layout",
-      userFullName: _.user!.fullName,
       dateToJalali,
       path: "/blog",
       blog,
